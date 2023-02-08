@@ -1,5 +1,5 @@
 module.exports.home = function (req, res, next) {
-    res.end("home Router Working")
+    res.render('home')
 }
 
 

@@ -1,3 +1,8 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 var userList = [];
 
 
@@ -5,10 +10,8 @@ module.exports.user = function (req, res, next) {
     res.render('user')
 }
 module.exports.userPost = function (req, res, next) {
-    // userList.push(req.body)
-    // res.redirect('/user', { userlist : userList});
-    console.log(req)
-    res.end("req.body.fname")
+    res.redirect('back')
+ 
 }
 
 module.exports.userCreate = function (req, res, next) {
