@@ -39,6 +39,7 @@ module.exports.create = function(req, res){
                 return res.redirect('/users/sign-in');
             })
         }else{
+            console.log(`${user} already availabale`);
             return res.redirect('back');
         }
 
