@@ -20,7 +20,7 @@ module.exports.signUp = function(req, res){
 
 // render the sign in page
 module.exports.signIn = function(req, res){
-
+    
     if(req.isAuthenticated()){
         console.log("already signed in")
         return res.redirect('/users/profile')
@@ -31,20 +31,14 @@ module.exports.signIn = function(req, res){
 }
 
 
-
+//signout has become asynchronus so must have a callback function with it
 module.exports.signOut = function(req, res){
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        return res.redirect('/users/sign-in')
+      });
+   
     
-    // Only if there is an active session.
-    if (req.session) {
-
-        // delete session object
-        req.session.destroy(error => {
-
-            req.session = null;
-            if (error) return next(error);
-        });
-    }
-    return res.redirect('/users/sign-in')
 }
 // get the sign up data
 module.exports.create = function(req, res){
