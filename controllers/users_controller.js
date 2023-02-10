@@ -1,7 +1,9 @@
 const User = require('../models/user');
-const passport = require('../config/passport-local-strategy')
+const passport = require('../config/passport-local-strategy');
+const { deserializeUser } = require('../config/passport-local-strategy');
 
 module.exports.profile = function(req, res){
+    
     return res.render('user_profile', {
         title: 'User Profile'
     })
@@ -18,13 +20,38 @@ module.exports.signUp = function(req, res){
 
 // render the sign in page
 module.exports.signIn = function(req, res){
+
+    if(req.isAuthenticated()){
+        console.log("already signed in")
+        return res.redirect('/users/profile')
+    }
     return res.render('user_sign_in', {
         title: "Codeial | Sign In"
     })
 }
 
+
+
+module.exports.signOut = function(req, res){
+    
+    // Only if there is an active session.
+    if (req.session) {
+
+        // delete session object
+        req.session.destroy(error => {
+
+            req.session = null;
+            if (error) return next(error);
+        });
+    }
+    return res.redirect('/users/sign-in')
+}
 // get the sign up data
 module.exports.create = function(req, res){
+    if(req.isAuthenticated()){
+        console.log("already signed in")
+        return res.redirect('/users/profile')
+    }
     if (req.body.password != req.body.confirm_password){
         return res.redirect('back');
     }
@@ -38,6 +65,7 @@ module.exports.create = function(req, res){
 
                 return res.redirect('/users/sign-in');
             })
+
         }else{
             console.log(`${user} already availabale`);
             return res.redirect('back');
@@ -49,5 +77,5 @@ module.exports.create = function(req, res){
 
 // sign in and create a session for the user
 module.exports.createSession = function(req, res){
-    return res.redirect('/')
+    return res.redirect('/users/profile')
 }

@@ -6,6 +6,7 @@ const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('./config/passport-local-strategy')
+const MongoStore = require('connect-mongo')(session);
 
 
 app.use(express.urlencoded());
@@ -20,13 +21,11 @@ app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
 
-// use express router
-app.use('/', require('./routes'));
 
+//mongoose store is used to store all the session cookies in db
 // set up the view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
-
 
 //session middleware with options
 app.use(session({
@@ -38,15 +37,24 @@ app.use(session({
     resave: false,
     cookie:{
         maxAge: (1000*60*100)
-    }
+    },
+    store: new MongoStore({
+        mongooseConnection: db,
+        autoRemove: 'disabled',
+    },
+    function(err){console.log(error || 'connet-mongo setup done')}
+
+    )
+
     
 }))
 
 app.use(passport.initialize());
 app.use(passport.session())
+app.use(passport.setAuthenticatedUser)
 
-
-
+// use express router
+app.use('/', require('./routes'));
 
 app.listen(port, function(err){
     if (err){
