@@ -4,6 +4,9 @@ const app = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
+const session = require('express-session');
+const passport = require('./config/passport-local-strategy')
+
 
 app.use(express.urlencoded());
 
@@ -23,6 +26,26 @@ app.use('/', require('./routes'));
 // set up the view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+
+//session middleware with options
+app.use(session({
+    name:'Codeail',
+
+    //TODO change secret before deployment
+    secret: 'universe',
+    saveUninitialized: false,
+    resave: false,
+    cookie:{
+        maxAge: (1000*60*100)
+    }
+    
+}))
+
+app.use(passport.initialize());
+app.use(passport.session())
+
+
 
 
 app.listen(port, function(err){
