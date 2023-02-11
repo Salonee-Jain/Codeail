@@ -1,4 +1,59 @@
-body{
-    margin: 0;
-    /* text-align: center; */
+:root {
+  --main-purple: rgb(134, 4, 185);
+  --main-light-gray:rgb(84, 84, 84);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: rgb(52, 52, 52);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  background-color: var(--main-light-gray);
+  padding: 2rem;
+}
+.sign-container .signin-heading {
+  color: white;
+}
+.sign-container .sign-heading {
+  color: white;
+}
+.sign-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.sign-container form input {
+  border: none;
+  outline: none;
+  margin-top: 0.5rem;
+  background-color: gray;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.sign-container form input::placeholder {
+  color: rgb(197, 193, 193);
+}
+.sign-container form input[type=submit] {
+  margin-top: 1.5rem;
+  background-color: var(--main-purple);
 }

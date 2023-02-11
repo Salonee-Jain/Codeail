@@ -1,0 +1,28 @@
+footer{
+    position: sticky;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(18, 15, 26);
+    color: white;
+    top: 100%;
+    height: 5%;
+    padding: 2% 5%;
+
+    .company-rights{       
+         color: rgb(124, 126, 126);
+    }
+    li{
+        list-style: none;
+        a{
+            text-decoration: none;
+            color: white;
+            margin-left: 20px;
+            &:hover{
+                color: var(--main-purple);
+               }
+        }
+        
+    }
+
+}
