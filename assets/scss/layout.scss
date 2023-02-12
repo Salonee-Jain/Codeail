@@ -28,6 +28,7 @@ main{
     margin-top: 5%;
     background-color: var(--main-light-gray);
     padding: 2rem;
+    border-radius: 5px;
     .signin-heading{
         color: white
     }
@@ -56,5 +57,16 @@ main{
                 
             }
         }
+    }
+}
+
+.additional {
+    font-size: 0.7rem;
+    color: white;
+    margin-top: 20px;
+    a{
+        text-decoration: none;
+        color: var(--main-purple);
+        font-weight: 900;
     }
 }

@@ -29,6 +29,7 @@ main {
   margin-top: 5%;
   background-color: var(--main-light-gray);
   padding: 2rem;
+  border-radius: 5px;
 }
 .sign-container .signin-heading {
   color: white;
@@ -56,4 +57,15 @@ main {
 .sign-container form input[type=submit] {
   margin-top: 1.5rem;
   background-color: var(--main-purple);
+}
+
+.additional {
+  font-size: 0.7rem;
+  color: white;
+  margin-top: 20px;
+}
+.additional a {
+  text-decoration: none;
+  color: var(--main-purple);
+  font-weight: 900;
 }
