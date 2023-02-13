@@ -1,8 +1,64 @@
-<div class="sign-container">
+<link rel="stylesheet" href="/css/home.css">
+<% if(locals.user){ %>
+    <div class="aside">
+               
+    </div >
+    <section class="feed-post">
+        <!-- <h2 class="post-heading">Posts</h2> -->
+        <form action="posts/create" id="new-post-form" method="POST">
+            <textarea name="posts" id="posts" cols="60" rows="2" placeholder="Add post.."></textarea>
+            <button type="submit">Post</button>
+        </form>
+
+        <ul>
+            <% for(var i=(post.length-1); i>=0; i--){ %>
 
 
-    <h1 class="sign-heading">
-        Welcome to Codeial
-        This is Home page
-    </h1>
-</div>
+                    <div class="post-list">
+                        <div class="post-card">
+                            <div class="post-user">
+                                <div class="profile-img"
+                                    style="background-color: red; border-radius:50%; height: 50px; width: 50px; overflow:hidden">
+                                    <img src="/images/profile.png" alt="" style="width:100%" height="100%;">
+                                </div>
+                                <div class="profile-info">
+                                    <p>
+                                        <%= post[i].user.name %>
+                                    </p>
+                                    <p id="time">
+                                        <%= post[i].createdAt.toString().substring(4, 21); %>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <%= post[i].content %>
+                            </div>
+                            <hr>
+                            <div class="post-actions">
+                                <a href="" class="like"><i class="fa-regular fa-heart"></i> Like</a>
+                                <a href="" class="comment"><i class="fa-regular fa-comment"></i> Comment</a>
+                                <a href="" class="share"><i class="fa-regular fa-comment"></i> Share</a>
+                                <a href="" class="repost'"><i class="fa-regular fa-flag"></i> Repost</a>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+        </ul>
+    </section>
+
+    <div class="aside">
+               
+    </div>
+
+
+    <%}else{%>
+
+        <div class="sign-container">
+
+
+            <h1 class="sign-heading">
+                Welcome to Codeial
+                This is Home page, SignIn to see you posts
+            </h1>
+        </div>
+        <%}%>

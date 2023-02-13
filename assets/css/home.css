@@ -1,0 +1,76 @@
+.feed-post {
+  width: 40%;
+}
+.feed-post .post-heading {
+  color: white;
+}
+.feed-post form {
+  margin: 2% 0%;
+  padding: 2%;
+  border-radius: 5px;
+  box-shadow: 29px 12px 15px -3px rgba(0, 0, 0, 0.1);
+  background-color: var(--main-light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.feed-post form textarea, .feed-post form button {
+  border: none;
+  outline: none;
+  margin-top: 0.5rem;
+  background-color: gray;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.feed-post form textarea::placeholder, .feed-post form button::placeholder {
+  color: rgb(197, 193, 193);
+}
+
+.post-card {
+  color: white;
+  margin-top: 2%;
+  padding: 1% 2%;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 29px 12px 15px -3px rgba(0, 0, 0, 0.1);
+  background-color: var(--main-light-gray);
+  display: flex;
+  flex-direction: column;
+}
+.post-card .post-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 5%;
+}
+.post-card .post-user p {
+  margin-left: 10px;
+}
+.post-card .post-user #time {
+  font-size: 0.8rem;
+  color: var(--sub-links);
+}
+.post-card .post-content {
+  margin: 10px;
+}
+.post-card .post-actions {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.post-card .post-actions a {
+  text-decoration: none;
+  color: var(--sub-links);
+  font-weight: lighter;
+}
+.post-card .post-actions a i {
+  font-size: 1.4rem;
+}
+
+hr {
+  height: 1px;
+  background-color: #626161;
+  border: none;
+}

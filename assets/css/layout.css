@@ -1,9 +1,12 @@
 :root {
   --main-purple: rgb(134, 4, 185);
   --main-light-gray:rgb(84, 84, 84);
+  --main-dark: rgb(18, 15, 26);
+  --sub-links: rgb(164, 164, 164);
 }
 
 * {
+  font-weight: 300;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,14 +14,17 @@
 }
 
 body {
-  background-color: rgb(52, 52, 52);
+  background-color: rgb(28, 27, 27);
 }
 
 main {
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+main aside {
+  background-color: green;
 }
 
 .sign-container {
@@ -30,9 +36,6 @@ main {
   background-color: var(--main-light-gray);
   padding: 2rem;
   border-radius: 5px;
-}
-.sign-container .signin-heading {
-  color: white;
 }
 .sign-container .sign-heading {
   color: white;

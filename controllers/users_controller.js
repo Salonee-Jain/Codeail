@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Post = require('../models/post')
 const passport = require('../config/passport-local-strategy');
 const { deserializeUser } = require('../config/passport-local-strategy');
 
@@ -73,3 +74,4 @@ module.exports.create = function(req, res){
 module.exports.createSession = function(req, res){
     return res.redirect('/users/profile')
 }
+

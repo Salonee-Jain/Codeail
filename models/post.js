@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const postSchema = new Schema({
+const postSchema = new mongoose.Schema({
     content:{
         type: String,
         required: true,
@@ -9,11 +9,19 @@ const postSchema = new Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'User',
-    }
+        // required: true,
+    },
+    // username:{
+    //     type: String,
+    //     required: true,
+    // }
 
 
 },{
-    timestamps: true,
+    timestamps: {
+        type: Number,
+        default: Date.now()
+    }
 })
 
 const Post = mongoose.model('Post', postSchema);
