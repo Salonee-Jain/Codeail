@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const postSchema = new mongoose.Schema({
+const commentSchema = new mongoose.Schema({
     content:{
         type: String,
         required: true,
@@ -11,17 +11,15 @@ const postSchema = new mongoose.Schema({
         ref:'User',
         // required: true,
     },
+    post: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Post'
+    }
+
     // username:{
     //     type: String,
     //     required: true,
     // }
-    //include array of id of comments
-    comments:[
-        {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comment'
-    }
-],
 
 
 },{
@@ -31,5 +29,5 @@ const postSchema = new mongoose.Schema({
     }
 })
 
-const Post = mongoose.model('Post', postSchema);
-module.exports = Post;
+const Comment = mongoose.model('Comment', commentSchema);
+module.exports = Comment;

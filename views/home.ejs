@@ -1,53 +1,83 @@
 <link rel="stylesheet" href="/css/home.css">
 <% if(locals.user){ %>
     <div class="aside">
-               
-    </div >
+
+    </div>
     <section class="feed-post">
         <!-- <h2 class="post-heading">Posts</h2> -->
         <form action="posts/create" id="new-post-form" method="POST">
-            <textarea name="posts" id="posts" cols="60" rows="2" placeholder="Add post.."></textarea>
+            <textarea name="posts" id="posts" cols="70" rows="4" placeholder="Add post.."></textarea>
             <button type="submit">Post</button>
         </form>
 
-        <ul>
-            <% for(var i=(post.length-1); i>=0; i--){ %>
+        
+            <div class="post-list">
+                <% for(let i=(post.length-1); i>=0; i--){ %>
 
 
-                    <div class="post-list">
-                        <div class="post-card">
-                            <div class="post-user">
-                                <div class="profile-img"
-                                    style="background-color: red; border-radius:50%; height: 50px; width: 50px; overflow:hidden">
-                                    <img src="/images/profile.png" alt="" style="width:100%" height="100%;">
-                                </div>
-                                <div class="profile-info">
-                                    <p>
-                                        <%= post[i].user.name %>
-                                    </p>
-                                    <p id="time">
-                                        <%= post[i].createdAt.toString().substring(4, 21); %>
-                                    </p>
-                                </div>
+
+                    <div class="post-card">
+                        <div class="post-user">
+                            <div class="profile-img"
+                                style="background-color: red; border-radius:50%; height: 50px; width: 50px; overflow:hidden">
+                                <img src="/images/profile.png" alt="" style="width:100%" height="100%;">
                             </div>
-                            <div class="post-content">
-                                <%= post[i].content %>
-                            </div>
-                            <hr>
-                            <div class="post-actions">
-                                <a href="" class="like"><i class="fa-regular fa-heart"></i> Like</a>
-                                <a href="" class="comment"><i class="fa-regular fa-comment"></i> Comment</a>
-                                <a href="" class="share"><i class="fa-regular fa-comment"></i> Share</a>
-                                <a href="" class="repost'"><i class="fa-regular fa-flag"></i> Repost</a>
+                            <div class="profile-info">
+                                <p>
+                                    <%= post[i].user.name %>
+                                </p>
+                                <p id="time">
+                                    <%= post[i].createdAt.toString().substring(4, 21); %>
+                                </p>
                             </div>
                         </div>
+                        <div class="post-content">
+                            <%= post[i].content %>
+                        </div>
+
+                        <hr>
+
+
+                        <div class="post-actions">
+
+                            <a href="" class="like"><i class="fa-regular fa-heart"></i> Like</a>
+
+                            <a href="" class="share"><i class="fa-regular fa-comment"></i> Share</a>
+                            <a href="" class="repost'"><i class="fa-regular fa-flag"></i> Repost</a>
+                        </div>
+                        <hr>
+
+                        <form action="comments/create" id="new-comment-form" method="POST">
+
+                            <input type="text" name="comment" id="comment" placeholder="Comment"></input>
+                            <input type="hidden" name="post" value="<%= post[i]._id %>">
+                            <button type="submit">Comment</button>
+                        </form>
+
+
+
+                        <!-- //comment list -->
+                        <ul class="comment-list">
+                            <% for(let i=(post.length-1); i>=0; i--){ %>
+                                    <% post[i].comments.forEach(data => { %> 
+                                        <li>
+                                            <p class="comment-user"><%-data.user %></p>
+                                            <p class="comment-content"><%-data.content %></p>
+                                        
+                                        </li>  
+                                        <% }) %>
+
+                                <%}%>
+                        </ul>
                     </div>
-                    <%}%>
-        </ul>
+
+                <%}%>
+            </div>
+        
     </section>
 
     <div class="aside">
-               
+
     </div>
 
 
@@ -58,7 +88,7 @@
 
             <h1 class="sign-heading">
                 Welcome to Codeial
-                This is Home page, SignIn to see you posts
+                This is Home page, SignIn to see your posts
             </h1>
         </div>
         <%}%>

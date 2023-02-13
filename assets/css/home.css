@@ -4,27 +4,32 @@
 .feed-post .post-heading {
   color: white;
 }
-.feed-post form {
+.feed-post #new-post-form {
   margin: 2% 0%;
   padding: 2%;
   border-radius: 5px;
   box-shadow: 29px 12px 15px -3px rgba(0, 0, 0, 0.1);
-  background-color: var(--main-light-gray);
+  background-color: var(--main-header-footer);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.feed-post form textarea, .feed-post form button {
+.feed-post #new-post-form textarea, .feed-post #new-post-form button {
+  overflow: auto;
+  resize: none;
   border: none;
   outline: none;
   margin-top: 0.5rem;
-  background-color: gray;
+  background-color: var(--main-light-gray);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 5px;
 }
-.feed-post form textarea::placeholder, .feed-post form button::placeholder {
+.feed-post #new-post-form textarea::placeholder, .feed-post #new-post-form button::placeholder {
   color: rgb(197, 193, 193);
+}
+.feed-post #new-post-form button {
+  background-color: var(--main-purple);
 }
 
 .post-card {
@@ -34,7 +39,7 @@
   width: 100%;
   border-radius: 5px;
   box-shadow: 29px 12px 15px -3px rgba(0, 0, 0, 0.1);
-  background-color: var(--main-light-gray);
+  background-color: var(--main-header-footer);
   display: flex;
   flex-direction: column;
 }
@@ -58,19 +63,49 @@
   margin: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .post-card .post-actions a {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
   text-decoration: none;
+  margin-left: 10px;
   color: var(--sub-links);
   font-weight: lighter;
+  font-size: 0.8rem;
 }
-.post-card .post-actions a i {
-  font-size: 1.4rem;
+.post-card .post-actions a:hover {
+  background-color: var(--color-border-faint);
+}
+.post-card #new-comment-form {
+  display: flex;
+}
+.post-card #new-comment-form #comment, .post-card #new-comment-form button {
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  margin: 0.5rem 1rem;
+  background-color: var(--main-light-gray);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.post-card #new-comment-form #comment::placeholder, .post-card #new-comment-form button::placeholder {
+  color: rgb(197, 193, 193);
+}
+.post-card #new-comment-form #comment {
+  border-radius: 10px;
+  width: 100%;
+  overflow: auto;
+  resize: none;
+}
+.post-card #new-comment-form button {
+  background-color: var(--main-purple);
 }
 
 hr {
   height: 1px;
-  background-color: #626161;
+  background-color: var(--color-border-faint);
   border: none;
 }

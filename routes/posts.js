@@ -6,8 +6,7 @@ const passport = require('passport');
 
 
 //post 
-router.post('/create' ,postsController.create);
-
+router.post('/create' ,passport.checkAuthentication,postsController.create);
 
 module.exports = router;
 

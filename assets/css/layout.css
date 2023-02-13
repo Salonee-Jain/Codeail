@@ -1,6 +1,9 @@
 :root {
+  --color-border-faint:hsla(0,0%,100%,0.12);
+  --main-header-footer: rgb(29,34,38);
+  --main-body: rgb(0,0,0);
   --main-purple: rgb(134, 4, 185);
-  --main-light-gray:rgb(84, 84, 84);
+  --main-light-gray: rgb(56,67,79);
   --main-dark: rgb(18, 15, 26);
   --sub-links: rgb(164, 164, 164);
 }
@@ -14,7 +17,7 @@
 }
 
 body {
-  background-color: rgb(28, 27, 27);
+  background-color: var(--main-body);
 }
 
 main {
@@ -33,7 +36,7 @@ main aside {
   justify-content: center;
   align-items: center;
   margin-top: 5%;
-  background-color: var(--main-light-gray);
+  background-color: var(--main-header-footer);
   padding: 2rem;
   border-radius: 5px;
 }
@@ -49,7 +52,7 @@ main aside {
   border: none;
   outline: none;
   margin-top: 0.5rem;
-  background-color: gray;
+  background-color: rgb(56, 67, 79);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 5px;

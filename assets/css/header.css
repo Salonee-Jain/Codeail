@@ -1,9 +1,11 @@
 header {
+  border-bottom: 1px solid var(--color-border-faint);
+  margin-bottom: 10px;
   position: sticky;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--main-dark);
+  background-color: var(--main-header-footer);
   color: white;
   top: 0;
   height: 5%;
