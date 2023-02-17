@@ -1,0 +1,53 @@
+<div class="post-card">
+    <div class="post-user">
+        <div class="profile-img"
+            style="background-color: red; border-radius:50%; height: 50px; width: 50px; overflow:hidden">
+            <img src="/images/profile.png" alt="" style="width:100%" height="100%;">
+        </div>
+        <div class="profile-info">
+            <p>
+
+                <%= posts.user.name %>
+            </p>
+            <p id="time">
+                <%= posts.createdAt.toString().substring(4, 21); %>
+            </p>
+        </div>
+    </div>
+    <div class="post-content">
+        <%= posts.content %>
+    </div>
+
+    <hr>
+
+
+    <div class="post-actions">
+
+        <a href="" class="like"><i class="fa-regular fa-heart"></i> Like</a>
+
+        <a href="" class="share"><i class="fa-regular fa-comment"></i> Share</a>
+        <a href="" class="edit"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+        <% if(locals.user && posts.user.id==locals.user.id ){ %>
+            <a href="posts/delete/<%= posts.id %>" class="delete" id="<%= posts.id %>"><i
+                    class="fa-regular fa-trash-can"></i> Delete</a>
+            <%}%>
+
+    </div>
+    <hr>
+
+    <form action="comments/create" id="new-comment-form" method="POST">
+
+        <input type="text" name="comment" id="comment" placeholder="Comment" required>
+        <input type="hidden" name="post" value="<%= posts._id %>">
+        <button type="submit">Comment</button>
+    </form>
+
+
+
+    <!-- //comment list -->
+    <ul class="comment-list" id="comment_<%= posts._id %>">
+        <% for( comment of posts.comments.reverse()){ %>
+            <%- include('_comments') %>
+        <%}%>
+    </ul>
+</div>

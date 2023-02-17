@@ -21,15 +21,11 @@ body {
 }
 
 main {
-  margin: auto;
-  padding: 0% 10%;
+  padding: 0% 2%;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-main aside {
-  background-color: green;
+  align-items: flex-start;
 }
 
 .sign-container {

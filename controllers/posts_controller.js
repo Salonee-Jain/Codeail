@@ -20,27 +20,26 @@ module.exports.create = function(req, res){
 
    
 
+//delte the data 
+module.exports.delete = function(req, res){
+    // Post.findByIdAndRemove(req.params.postId, function (err, post) {
+    //     if (err){
+    //         console.log(err)
+    //     }
+    //     else{
+    //         console.log("Removed post : ", post);
+    //     }
+    // });
 
+    Post.findById(req.params.postId, function (err, post) {
+        if(err){console.log("error in deleting post"); return;}
+            if(post.user==req.user.id){
+                post.remove();
+                Comment.deleteMany({post: req.params.postId, function(err, comment){
+                    if(err){console.log("error in deleting commments of post"); return;}
+                }})
+            }
+        });
 
-module.exports.createcomment = function(req, res){
-    console.log(req)
-    res.end('coment')
-    // if(req.isAuthenticated()){
-    //     console.log(req)
-    //     Comment.create({
-    //         content: req.body.comment,
-    //         user: req.user,
-            
-
-    //     }, function(err, user){
-    //         if(err){console.log('error in creating post'); return}
-
-    //         return res.redirect('/');
-    //     })
-    // }else{
-    //     return res.redirect('/users/sign-in');
-    // }
-
-   
-
+    return res.redirect('/')
 }

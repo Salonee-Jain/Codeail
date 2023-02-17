@@ -4,10 +4,13 @@ const passport = require('../config/passport-local-strategy');
 const { deserializeUser } = require('../config/passport-local-strategy');
 
 module.exports.profile = function(req, res){
-    
-    return res.render('user_profile', {
-        title: 'User Profile'
+    User.findById(req.params.profileId,(err, user)=>{
+        return res.render('user_profile', {
+            title: 'User Profile',
+            user_profile: user
+        })
     })
+   
 }
 
 
@@ -17,6 +20,36 @@ module.exports.signUp = function(req, res){
         title: "Codeial | Sign Up"
     })
 }
+
+module.exports.updateform = function(req, res){
+    return res.render('updateform', {
+        title: "Update"
+    })
+}
+module.exports.update= function(req, res){
+   if(req.params.profileId == req.user.id){
+    User.findByIdAndUpdate(req.params.profileId, req.body,(err, user)=>{
+        if(err){console.log("error in updating"); return;}
+        return res.redirect(`/users/profile/${req.params.profileId}/`)
+       })
+   }else{
+    return res.status(401).send("unauthorized")
+   }
+}
+module.exports.delete= function(req, res){
+    Post.findOneAndDelete({user: req.user.id},(err, user)=>{
+        if(err){console.log("error in updating"); return;}
+    })
+    Post.findOneAndDelete({user: req.user.id},(err, user)=>{
+        if(err){console.log("error in updating"); return;}
+    })
+
+
+    User.findByIdAndRemove(req.user.id,(err, user)=>{
+     if(err){console.log("error in deleting user"); return;}
+     return res.redirect('/')
+    })
+ }
 
 
 // render the sign in page
@@ -44,7 +77,7 @@ module.exports.signOut = function(req, res){
 // get the sign up data
 module.exports.create = function(req, res){
     if(req.isAuthenticated()){
-        console.log("already signed in")
+        // console.log("already signed in")
         return res.redirect('/users/profile')
     }
     if (req.body.password != req.body.confirm_password){
@@ -72,6 +105,6 @@ module.exports.create = function(req, res){
 
 // sign in and create a session for the user
 module.exports.createSession = function(req, res){
-    return res.redirect('/users/profile')
+    return res.redirect('/')
 }
 

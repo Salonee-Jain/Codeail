@@ -1,5 +1,6 @@
 const Comment = require('../models/comment')
-const Post = require('../models/post')
+const Post = require('../models/post');
+const User = require('../models/user')
 
 module.exports.home = function(req, res){
  
@@ -14,11 +15,16 @@ module.exports.home = function(req, res){
     .exec((err, posts)=>{
         if(err){console.log("error")}
         posts.reverse();
-        return res.render('home', {
-            title: "Home",
-            posts: posts,
-        
-        });
+        User.find({}, (err, users) => {
+            if (err) { console.log("error") }
+            posts.reverse();
+            return res.render('home', {
+                title: "Home",
+                posts: posts,
+                all_users: users,
+
+            });
+        })
     });
 
    
