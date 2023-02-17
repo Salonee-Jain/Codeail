@@ -4,6 +4,9 @@ const User = require('../models/user')
 
 module.exports.home = function(req, res){
  
+
+
+    
     Post.find({})
     .populate('user')
     .populate({
@@ -17,7 +20,6 @@ module.exports.home = function(req, res){
         posts.reverse();
         User.find({}, (err, users) => {
             if (err) { console.log("error") }
-            posts.reverse();
             return res.render('home', {
                 title: "Home",
                 posts: posts,

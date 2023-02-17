@@ -1,19 +1,21 @@
 .profile-container{
-    width: 40%;
-    height: 300px;
+    width: 30%;
     margin-top: 5%;
     background-color: var(--main-header-footer);
     padding: 2rem;
     border-radius: 5px;
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
     padding: 2%;
-
+    .profile-img{
+        width: 50%;
+    }
     .name{
         padding: 0rem 1rem;
         color: white;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .profile-actions {
         margin-top: 40%;
@@ -24,12 +26,19 @@
             text-decoration: none;
             color: var(--sub-links);
             font-weight: lighter;
-            font-size: 1rem;
+            font-size: 0.8rem;
             &:hover {
                 background-color: var(--color-border-faint);
             }
         }
     }
+}
+.update-profile-info{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px
 }
 
 .uppercase{
