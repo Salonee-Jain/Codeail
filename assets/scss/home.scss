@@ -1,5 +1,10 @@
+.aside-right, .aside-left{
+    width: 20%;
+    height: 100%;
+    background-color: blue;
+}
 .feed-post{
-    width: 40%;
+    width: 55%;
     .post-heading{
         color: white;
     }
@@ -115,7 +120,24 @@
             background-color: var(--main-purple);
         }
         
-        
+
+        }
+
+        .comment-list{
+            li{
+                display: flex;
+                flex-direction: column;
+                word-wrap: break-word;
+                background-color: rgb(60,67,69);
+                padding: 1rem;
+                margin: 10px;
+                border-radius: 0px 15px 15px 15px;
+                .comment-user{
+                    font-size: .8rem;
+                    color: var(--sub-links);
+                    margin-bottom: 10px
+                }
+            }
         }
 }
 hr{

@@ -21,6 +21,8 @@ body {
 }
 
 main {
+  margin: auto;
+  padding: 0% 10%;
   width: 100%;
   display: flex;
   justify-content: center;
