@@ -3,34 +3,26 @@ const Post = require('../models/post');
 const Comment = require('../models/comment')
 const passport = require('../config/passport-local-strategy');
 const { deserializeUser } = require('../config/passport-local-strategy');
+const { findById } = require('../models/user');
 
 //post the data and stors in db
-module.exports.create = function(req, res){
-    
-        Post.create({
+module.exports.create = async function (req, res) {
+    try {
+        await Post.create({
             content: req.body.posts,
             user: req.user._id,
-
-        }, function(err, user){
-            if(err){console.log('error in creating post'); return}
-
-            return res.redirect('/');
         })
+        return res.redirect('/');
+    } catch {
+        cosnole.log("Error: ", err)
     }
+}
 
-   
+
 
 //delte the data 
-module.exports.delete = function(req, res){
-    // Post.findByIdAndRemove(req.params.postId, function (err, post) {
-    //     if (err){
-    //         console.log(err)
-    //     }
-    //     else{
-    //         console.log("Removed post : ", post);
-    //     }
-    // });
-
+module.exports.delete = async function (req, res) {
+    /*
     Post.findById(req.params.postId, function (err, post) {
         if(err){console.log("error in deleting post"); return;}
             if(post.user==req.user.id){
@@ -42,4 +34,17 @@ module.exports.delete = function(req, res){
         });
 
     return res.redirect('/')
+    */
+
+    let post = await Post.findById(req.params.postId);
+    try {
+        if (post.user == req.user.id) {
+            post.remove();
+            await Comment.deleteMany({ post: req.params.postId })
+        }
+        return res.redirect('/')
+    } catch {
+        cosnole.log("Error: ", err);
+        return;
+    }
 }

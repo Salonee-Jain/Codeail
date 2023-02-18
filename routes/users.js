@@ -20,7 +20,7 @@ router.get('/updateform', passport.checkAuthentication ,usersController.updatefo
 router.post('/update/:profileId', passport.checkAuthentication ,usersController.update);
 
 //deletes the profile and associated posts and comments
-// router.get('/delete', passport.checkAuthentication ,usersController.delete)
+router.get('/delete/:userId', passport.checkAuthentication ,usersController.delete)
 
 //using passport as middleware here
 router.post('/create-session',   passport.authenticate('local', { failureRedirect: '/users/sign-in' }),usersController.createSession);
