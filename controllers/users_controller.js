@@ -67,20 +67,20 @@ module.exports.signIn = function (req, res) {
 module.exports.signOut = function (req, res) {
     req.logout(function (err) {
         if (err) { return next(err); }
-        return res.redirect('/users/sign-in')
+        req.flash('success', 'Logged out succesfully')
+        return res.redirect('/')
     });
-
+   
 
 }
 // get the sign up data
 module.exports.create = async function (req, res) {
-
-
     if (req.isAuthenticated()) {
-        // console.log("already signed in")
+        req.flash('error', "already signed in")
         return res.redirect('/users/profile')
     }
     if (req.body.password != req.body.confirm_password) {
+        req.flash('error', "passwords do not match")
         return res.redirect('back');
     }
     /*
@@ -109,12 +109,15 @@ module.exports.create = async function (req, res) {
         console.log(user)
         if (!user) {
             await User.create(req.body);
+            req.flash('success', "user created")
             return res.redirect('/users/sign-in');
         } else {
+            req.flash('error', "There is an another user with same email")
             return res.redirect('back');
         }
 
     } catch (err) {
+        req.flash('error', "Error in creating user")
         console.log("Error: ", err);
         return;
     }
@@ -125,6 +128,7 @@ module.exports.create = async function (req, res) {
 
 // sign in and create a session for the user
 module.exports.createSession = function (req, res) {
+    req.flash('success', 'Logged in successfully')
     return res.redirect('/')
 }
 

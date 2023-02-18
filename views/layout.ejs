@@ -4,6 +4,8 @@
     <title>
         <%= title %>
     </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
     <script src="https://kit.fontawesome.com/deb11384cc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/layout.css">
     <%- style %>
@@ -11,20 +13,52 @@
 </head>
 
 <body>
+
+    <style>
+        .noty_message{
+            background-color: black;
+            border-radius: 50%;
+        }
+    </style>
     <%- include('_header'); %>
+                <main>
 
-        <main>
-           
 
-            <%- body %>
+                    <%- body %>
 
-              
-        </main>
 
-        <%- include('_footer'); %>
+                </main>
 
-            <%- script %>
+    <%- include('_footer'); %>
 
+        <%- script %>
+        <script>
+            <% if (flash.success && flash.success.length > 0) {%>
+                new Noty({
+                    theme: 'semanticui',
+                    text: "<%= flash.success %>",
+                    type: 'success',
+                    layout: 'topRight',
+                    timeout: 1500
+                    
+                }).show();    
+            <%} %>
+
+            <% if (flash.error && flash.error.length > 0) {%>
+                new Noty({
+                    theme: 'semanticui',
+                    text: "<%= flash.error %>",
+                    type: 'error',
+                    layout: 'topRight',
+                    timeout: 1500
+                    
+                }).show();    
+            <%} %>
+
+
+            
+        </script>      
+        
 </body>
 
 </html>
