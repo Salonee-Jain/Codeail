@@ -8,15 +8,34 @@ const { findById } = require('../models/user');
 //post the data and stors in db
 module.exports.create = async function (req, res) {
     try {
-        await Post.create({
+        let post = await Post.create({
             content: req.body.posts,
             user: req.user._id,
         })
+        
+
+        ///populating the user from post
+        let mainpost = await Post.findById(post._id).populate('user')
+        console.log(mainpost)
+
+        
+        if(req.xhr){
+            return res.status(200).json({
+                data:{
+                    //passing the populated one
+                    post: mainpost,
+                },
+                message: "Post created"
+            })
+        }
+        req.flash('success', 'Post created')
         return res.redirect('/');
-    } catch {
-        cosnole.log("Error: ", err)
+    } catch(err) {
+        console.log("Error: ", err)
     }
 }
+
+
 
 
 
@@ -40,11 +59,24 @@ module.exports.delete = async function (req, res) {
     try {
         if (post.user == req.user.id) {
             post.remove();
-            await Comment.deleteMany({ post: req.params.postId })
+            await Comment.deleteMany({ post: req.params.postId });
+            if(req.xhr){
+                return res.status(200).json({
+                    data:{
+                        post_id: req.params.postId,
+                    },
+                    message: "Post deleted"
+                })
+            }
+
+
+            req.flash('success', 'Post and associated comments deleted')
+        }else{
+            return res.redirect('back')
         }
         return res.redirect('/')
     } catch {
-        cosnole.log("Error: ", err);
+        console.log("Error: ", err);
         return;
     }
 }

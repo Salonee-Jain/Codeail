@@ -1,5 +1,5 @@
 .aside-right {
-  width: 27%;
+  width: 30%;
   margin: 1% 2%;
   color: white;
   padding: 2%;
@@ -36,7 +36,7 @@
 }
 
 .feed-post {
-  width: 50%;
+  width: 55%;
 }
 .feed-post .post-heading {
   color: white;
@@ -124,11 +124,11 @@
 .post-card .post-actions a:hover {
   background-color: var(--color-border-faint);
 }
-.post-card #new-comment-form {
+.post-card .new-comment-form {
   display: flex;
 }
-.post-card #new-comment-form #comment,
-.post-card #new-comment-form button {
+.post-card .new-comment-form .comment-text-area,
+.post-card .new-comment-form button {
   display: flex;
   align-items: center;
   border: none;
@@ -139,17 +139,17 @@
   padding: 0.5rem 1rem;
   border-radius: 5px;
 }
-.post-card #new-comment-form #comment::placeholder,
-.post-card #new-comment-form button::placeholder {
+.post-card .new-comment-form .comment-text-area::placeholder,
+.post-card .new-comment-form button::placeholder {
   color: rgb(197, 193, 193);
 }
-.post-card #new-comment-form #comment {
+.post-card .new-comment-form .comment-text-area {
   border-radius: 10px;
   width: 100%;
   overflow: auto;
   resize: none;
 }
-.post-card #new-comment-form button {
+.post-card .new-comment-form button {
   background-color: var(--main-purple);
 }
 .post-card .comment-list li {

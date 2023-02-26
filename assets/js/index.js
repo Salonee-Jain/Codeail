@@ -1,6 +1,6 @@
-$(form).keydown(function (e) {
+$('form').keydown(function (e) {
     if (e.key == 'Enter') {
         e.preventDefault();
-        return false;
+        return;
     }
 });

@@ -1,5 +1,5 @@
 .aside-right{
-    width: 27%;
+    width: 30%;
         margin: 1% 2%;
         color: white;
         padding: 2%;
@@ -40,7 +40,7 @@
     background-color: var(--main-header-footer);
     }
 .feed-post {
-    width: 50%;
+    width: 55%;
     .post-heading {
         color: white;
     }
@@ -133,10 +133,10 @@
         }
     }
 
-    #new-comment-form {
+    .new-comment-form {
         display: flex;
 
-        #comment,
+        .comment-text-area,
         button {
             display: flex;
             align-items: center;
@@ -151,7 +151,7 @@
                 color: rgb(197, 193, 193);
             }
         }
-        #comment {
+        .comment-text-area {
             border-radius: 10px;
             width: 100%;
             overflow: auto;
