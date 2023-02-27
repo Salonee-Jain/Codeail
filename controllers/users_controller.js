@@ -56,18 +56,17 @@ module.exports.update = async function (req, res) {
                 user.name = req.body.name;
                 user.email = req.body.email;
                 if (req.file) {
-                    // if(user.avatar){
-                    //     // User.updateOne({id: user.id},
-                    //     //     { $unset: { avatar:"" } }
-                    //     //  )
-                    //    fs.unlinkSync(path.join(__dirname, '..', user.avatar));
-                    // }
-                    user.avatar = User.avatarPath + '/' + req.file.filename
-                }
+                    if(user.avatar){
+                        if (fs.existsSync(path.join(__dirname, '..', user.avatar))) {
+                            fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+                        }
+                    }
+                    user.avatar = User.avatarPath + '/' + req.file.filename;
                 user.save();
            
-                return res.redirect('back')
-            })
+                return res.redirect('back');
+            }
+        })
 
 
         } catch (err) {
