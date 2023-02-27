@@ -3,7 +3,8 @@ const Post = require('../models/post');
 const Comment = require('../models/comment')
 const passport = require('../config/passport-local-strategy');
 const { deserializeUser } = require('../config/passport-local-strategy');
-
+const fs = require('fs');
+const path = require('path')
 
 //render the profile page
 module.exports.profile = async function (req, res) {
@@ -35,14 +36,48 @@ module.exports.updateform = function (req, res) {
         title: "Update"
     })
 }
-module.exports.update = function (req, res) {
+module.exports.update = async function (req, res) {
+    // if (req.params.profileId == req.user.id) {
+    //     User.findByIdAndUpdate(req.params.profileId, req.body, (err, user) => {
+    //         if (err) { console.log("error in updating"); return; }
+    //         req.flash('success', 'Profile updated')
+    //         return res.redirect(`/users/profile/${req.params.profileId}/`)
+    //     })
+    // } else {
+    //     req.flash('error', 'Unorthorized')
+    //     return res.status(401).send("unauthorized")
+    // }
+
     if (req.params.profileId == req.user.id) {
-        User.findByIdAndUpdate(req.params.profileId, req.body, (err, user) => {
-            if (err) { console.log("error in updating"); return; }
-            req.flash('success', 'Profile updated')
-            return res.redirect(`/users/profile/${req.params.profileId}/`)
-        })
+        try {
+            let user = await User.findById(req.params.profileId);
+            User.uploadedAvatar(req, res, function(err){
+                if (err) { console.log("**********Multer error", err); }
+                user.name = req.body.name;
+                user.email = req.body.email;
+                if (req.file) {
+                    // if(user.avatar){
+                    //     // User.updateOne({id: user.id},
+                    //     //     { $unset: { avatar:"" } }
+                    //     //  )
+                    //    fs.unlinkSync(path.join(__dirname, '..', user.avatar));
+                    // }
+                    user.avatar = User.avatarPath + '/' + req.file.filename
+                }
+                user.save();
+           
+                return res.redirect('back')
+            })
+
+
+        } catch (err) {
+            req.flash('error: ', err)
+            return res.redirect('back')
+        }
+
+
     } else {
+        req.flash('error', 'Unorthorized')
         return res.status(401).send("unauthorized")
     }
 }
@@ -71,7 +106,7 @@ module.exports.signOut = function (req, res) {
         req.flash('success', 'Logged out succesfully')
         return res.redirect('/')
     });
-   
+
 
 }
 // get the sign up data
@@ -138,19 +173,20 @@ module.exports.createSession = function (req, res) {
 
 
 
+
 module.exports.delete = async function (req, res) {
 
-    
+
     try {
-        let posts = await Post.find({user:req.params.userId});
+        let posts = await Post.find({ user: req.params.userId });
         console.log("_____________________________________________________________________________");
-        console.log("Posts: ",posts)
-        for(let postid of posts){
-            let postComment = await Comment.find({post:postid._id});
-            console.log("Post comment: ",postComment)
+        console.log("Posts: ", posts)
+        for (let postid of posts) {
+            let postComment = await Comment.find({ post: postid._id });
+            console.log("Post comment: ", postComment)
         }
-        let comment = await Comment.find({user:req.params.userId});
-        console.log("comment: ",comment)
+        let comment = await Comment.find({ user: req.params.userId });
+        console.log("comment: ", comment)
         console.log("_____________________________________________________________________________");
 
         return res.redirect('/')

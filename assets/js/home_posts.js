@@ -46,7 +46,7 @@
         <div class="post-user">
             <div class="profile-img"
                 style="background-color: red; border-radius:50%; height: 50px; width: 50px; overflow:hidden">
-                <img src="/images/profile.png" alt="" style="width:100%" height="100%;">
+                <img src="${posts.user.avatar}" alt="" style="width:100%" height="100%;">
             </div>
             <div class="profile-info">
                 <p>

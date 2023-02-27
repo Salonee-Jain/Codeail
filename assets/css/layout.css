@@ -46,7 +46,7 @@ main {
   flex-direction: column;
   justify-content: space-around;
 }
-.sign-container form input {
+.sign-container form input, .sign-container form label {
   border: none;
   outline: none;
   margin-top: 0.5rem;
@@ -55,10 +55,10 @@ main {
   padding: 0.5rem 1rem;
   border-radius: 5px;
 }
-.sign-container form input::placeholder {
+.sign-container form input::placeholder, .sign-container form label::placeholder {
   color: rgb(197, 193, 193);
 }
-.sign-container form input[type=submit] {
+.sign-container form input[type=submit], .sign-container form label[type=submit] {
   margin-top: 1.5rem;
   background-color: var(--main-purple);
 }

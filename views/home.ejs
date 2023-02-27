@@ -10,6 +10,7 @@
         <!-- <h2 class="post-heading">Posts</h2> -->
         <form action="posts/create" id="new-post-form" method="POST" class="main-shadow">
             <textarea name="posts" id="posts" cols="70" rows="4" placeholder="Add post.." required></textarea>
+            
             <button type="submit">Post</button>
         </form>
 
@@ -35,9 +36,11 @@
              
                 <li class="friends">
                     <label for="<%= user.id %>">
-
+                        <%if(user.avatar){%>
+                        <img src="<%= user.avatar %>" alt="<%= user.name %>" style="width:40px; height:40px; border-radius:50%; margin: 5px;">
+                        <%}else{%>
                         <img src="/images/profile.png" alt="" style="width:40px; height:40px; border-radius:50%; margin: 5px;">
-
+                        <%}%>
                         <%= user.name %>
                     </label>
                     <a href="/users/profile/<%= user.id %>" id="<%= user.id %>">View Profile</a>
