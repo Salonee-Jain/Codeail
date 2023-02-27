@@ -11,11 +11,14 @@
   justify-content: space-between;
   align-items: center;
 }
-.aside-right .friends label {
+.aside-right .friends .friend-name {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  color: white;
+  text-decoration: none;
 }
-.aside-right .friends a {
+.aside-right .friends .follow {
   margin: 0.5rem;
   padding: 0.5rem;
   border-radius: 5px;
@@ -24,7 +27,7 @@
   font-weight: lighter;
   background-color: var(--main-purple);
 }
-.aside-right .friends a:hover {
+.aside-right .friends .follow:hover {
   background-color: transparent;
   color: var(--main-purple);
 }
@@ -104,6 +107,7 @@
   color: var(--sub-links);
 }
 .post-card .post-content {
+  font-size: 1rem;
   margin: 10px;
 }
 .post-card .post-actions {
@@ -162,21 +166,24 @@
   border-radius: 0px 15px 15px 15px;
 }
 .post-card .comment-list li .comment-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 0.8rem;
   color: var(--sub-links);
   margin-bottom: 10px;
+}
+.post-card .comment-list li .comment-user .comment-delete a {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--main-purple);
 }
 .post-card .comment-list li .comment-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.post-card .comment-list li .comment-content p a {
-  text-decoration: none;
-  color: white;
-}
-
-hr {
+.post-card hr {
   height: 1px;
   background-color: var(--color-border-faint);
   border: none;

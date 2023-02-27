@@ -62,10 +62,11 @@ module.exports.update = async function (req, res) {
                         }
                     }
                     user.avatar = User.avatarPath + '/' + req.file.filename;
-                user.save();
-           
-                return res.redirect('back');
+                
             }
+            user.save();
+            req.flash('success', 'Profile updated')
+            return res.redirect('back');
         })
 
 

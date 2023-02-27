@@ -38,3 +38,6 @@ header .user-links a:hover {
   background-color: transparent;
   transition: all 0.3s ease-in-out;
 }
+header .user-links p a {
+  background-color: transparent;
+}

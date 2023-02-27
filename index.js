@@ -10,6 +10,7 @@ const MongoStore = require('connect-mongo')(session);
 const sassMiddleware = require('sass')
 const flash = require('connect-flash');
 const cMiddleware = require('./config/middleware');
+const GoogleStrategy = require('./config/passport-google-oauth2-strategy');
 
 app.use(express.urlencoded());
 

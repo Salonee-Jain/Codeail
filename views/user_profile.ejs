@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/user_profile.css">
 <div class="profile-container">
 
-    <div class="profile-img"style="border-radius:50%; height: 100px; width: 100px; overflow:hidden">
+    <div class="profile-img"style="border-radius:50%; height: 60px; width: 60px; overflow:hidden">
         <%if(user_profile.avatar){%>
             <img src="<%= user_profile.avatar %>" alt="<%= user_profile.name %>" style="width:100%; height:100%; border-radius:50%;">
             <%}else{%>
@@ -14,11 +14,12 @@
                 <%= user_profile.name %>
             </p>
             <p>
+                
                 <%= user_profile.email %>
             </p>
         </div>
 
-
+        
         <%if(locals.user._id==user_profile.id){%>
             <div class="profile-actions">
 

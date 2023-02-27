@@ -2,10 +2,10 @@
 
 <header>
   <div class="logo"><a href="/">Codeail</a></div>
-
+  
   <div class="user-links">
     <% if(locals.user){ %>
-        <p><%= user.name %></p>
+        <p><a href="/users/profile/<%= user.id %>" class="user-name"><%= user.name %></a></p>
         <a href="/users/sign-out">Signout</a>
     <% }else{ %>
     
