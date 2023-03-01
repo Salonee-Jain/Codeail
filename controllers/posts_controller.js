@@ -13,6 +13,7 @@ module.exports.create = async function (req, res) {
             user: req.user._id,
         })
         
+        
 
         ///populating the user from post
         let mainpost = await Post.findById(post._id).populate('user')
@@ -80,3 +81,5 @@ module.exports.delete = async function (req, res) {
         return;
     }
 }
+
+

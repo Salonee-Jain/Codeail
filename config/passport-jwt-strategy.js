@@ -4,7 +4,7 @@ const ExtractJWT = require('passport-jwt').ExtractJwt;
 const User = require('../models/user');
 
 //this is the key used to encrypt the accessToken
-let opts = {jwtFromRequest:  ExtractJWT.fromAuthHeaderAsBearerToken ,secretOrKey : 'codeail'}
+let opts = {jwtFromRequest:  ExtractJWT.fromAuthHeaderAsBearerToken() ,secretOrKey : 'codeail'}
 
 
 //JWT has three parts eparted by dots
