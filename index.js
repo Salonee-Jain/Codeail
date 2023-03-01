@@ -10,7 +10,9 @@ const MongoStore = require('connect-mongo')(session);
 const sassMiddleware = require('sass')
 const flash = require('connect-flash');
 const cMiddleware = require('./config/middleware');
-const GoogleStrategy = require('./config/passport-google-oauth2-strategy');
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
+const passportJWT = require('./config/passport-jwt-strategy');
+
 
 app.use(express.urlencoded());
 
@@ -18,6 +20,7 @@ app.use(cookieParser());
 
 app.use(express.static('./assets'));
 app.use('/uploads', express.static(__dirname+'/uploads'))
+
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
 app.set('layout extractStyles', true);
