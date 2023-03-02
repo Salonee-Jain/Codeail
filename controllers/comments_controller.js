@@ -3,7 +3,7 @@ const Post = require('../models/post');
 const Comment = require('../models/comment')
 const passport = require('../config/passport-local-strategy');
 const { deserializeUser } = require('../config/passport-local-strategy');
-
+const commentsMailer = require('../mailer/comments_mailer')
 //craetes comments and stors in db
 module.exports.create = async function (req, res) {
 
@@ -35,23 +35,24 @@ module.exports.create = async function (req, res) {
             })
 
             
-            //populating the user from comment of the post 
-            let maincomment = await Comment.findById(comment._id).populate('user')
-            console.log(maincomment)
+            
            
-            req.flash('success', 'Comment created!')
+           
             post.comments.push(comment);
             post.save();
+            //populating the user from comment of the post 
+            comment = await Comment.findById(comment._id).populate('user')
+            commentsMailer.newComment(comment)
             if (req.xhr) {
                 return res.status(200).json({
                     data: {
-                        comment: maincomment,
+                        comment: comment,
                     },
                     message: "comment created"
                 });
             }
         }
-
+        req.flash('success', 'Comment created!')
         return res.redirect('back');
     } catch (err) {
         console.log("Error: ", err);

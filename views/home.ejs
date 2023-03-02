@@ -8,9 +8,9 @@
 
     <section class="feed-post">
         <!-- <h2 class="post-heading">Posts</h2> -->
-        <form action="posts/create" id="new-post-form" method="POST" class="main-shadow">
+        <form action="posts/create" id="new-post-form" method="POST" class="main-shadow" enctype="multipart/form-data">
             <textarea name="posts" id="posts" cols="70" rows="4" placeholder="Add post.." required></textarea>
-
+            <input id="postpic" type="file" name="postpic" placeholder="Post picture">
             <button type="submit">Post</button>
         </form>
 

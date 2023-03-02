@@ -12,13 +12,18 @@ module.exports.create = async function (req, res) {
             content: req.body.posts,
             user: req.user._id,
         })
-        
-        
+     
+
+        Post.uploadedPostpic(req, res, function(err){
+            if(err){console.log(err)}
+           console.log(req.file)
+        })
+    
 
         ///populating the user from post
         let mainpost = await Post.findById(post._id).populate('user')
-        console.log(mainpost)
-
+        
+       
         
         if(req.xhr){
             return res.status(200).json({
@@ -42,19 +47,6 @@ module.exports.create = async function (req, res) {
 
 //delte the data 
 module.exports.delete = async function (req, res) {
-    /*
-    Post.findById(req.params.postId, function (err, post) {
-        if(err){console.log("error in deleting post"); return;}
-            if(post.user==req.user.id){
-                post.remove();
-                Comment.deleteMany({post: req.params.postId, function(err, comment){
-                    if(err){console.log("error in deleting commments of post"); return;}
-                }})
-            }
-        });
-
-    return res.redirect('/')
-    */
 
     let post = await Post.findById(req.params.postId);
     try {

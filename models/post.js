@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const multer = require('multer')
 const path = require('path');
-const PICTURE_PATH = path.join('/uploads/posts/picture');
+const PICTURE_PATH = path.join('/uploads/posts/post_pictures');
 
 
 const postSchema = new mongoose.Schema({
@@ -26,7 +26,7 @@ const postSchema = new mongoose.Schema({
         },
 
     ],
-    picture:{
+    postpic:{
         type: String,
     }
 
@@ -54,8 +54,8 @@ let storage = multer.diskStorage({
 
 //defining the static methods
 
-postSchema.statics.uploadedPicture = multer({ storage: storage }).single('picture');
-postSchema.statics.picturePath = PICTURE_PATH;
+postSchema.statics.uploadedPostpic = multer({ storage: storage }).single('postpic');
+postSchema.statics.postPicPath = PICTURE_PATH;
 
 
 const Post = mongoose.model('Post', postSchema);
