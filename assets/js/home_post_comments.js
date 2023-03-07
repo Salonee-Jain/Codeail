@@ -71,11 +71,15 @@ class PostComments {
                     <br>
                     ${new Date(comment.createdAt).toString().substring(4, 21) }
                 </p>
-                <p class="comment-delete">
-                    
-                        <a href="comments/delete/${comment._id}" class="delete-comment" id="<%= comment.id  %>"><i class="fa-regular fa-trash-can"></i></a>
-                  
-                </p>
+                <div class="comment-actions">
+                        <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${comment._id}&type=Comment">
+                            0 <i class="fa-regular fa-heart"></i>
+                        </a>
+
+                        <a href="comments/delete/${comment._id}" class="delete-comment" id="<%= comment._id  %>"><i
+                        class="fa-regular fa-trash-can"></i></a>
+                   
+        </div>
             </div>
             <div class="comment-content">
                 <p>

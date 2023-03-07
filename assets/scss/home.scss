@@ -117,7 +117,11 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-
+        .like-number{
+            color: var(--sub-links);
+            font-weight: lighter;
+            font-size: 0.8rem;
+        }
         a {
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -178,10 +182,15 @@
                 font-size: 0.8rem;
                 color: var(--sub-links);
                 margin-bottom: 10px;
-                .comment-delete a {
-                    font-size: 1.2rem;
+                .comment-actions a {
+                    color: var(--sub-links);
+                    font-size: 1rem;
                     text-decoration: none;
-                    color: var(--main-purple)
+                    margin-right: 0.5rem;
+                    &:hover{
+                        color: var(--main-purple);
+                    }
+                   
                 }
             }
             .comment-content {

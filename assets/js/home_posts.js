@@ -60,7 +60,7 @@
         </div>
         <div class="post-content">
             <div class="post-image" style="width:100%; height: auto; margin-bottom:20px">
-                <img src="/images/s.jpg" alt="" style="width:100%; height:100%">
+             
             </div>
             <div class="post-text">
                 ${posts.content }
@@ -72,7 +72,9 @@
     
         <div class="post-actions">
     
-            <a href="" class="like"><i class="fa-regular fa-heart"></i> Like</a>
+            <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${posts._id}&type=Post">
+                0 Likes
+            </a>
     
             <a href="" class="share"><i class="fa-regular fa-comment"></i> Share</a>
             <a href="" class="edit"><i class="fa-regular fa-pen-to-square"></i> Edit</a>

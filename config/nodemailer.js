@@ -4,27 +4,32 @@ const path = require('path');
 var smtpTransport = require("nodemailer-smtp-transport");
 
 var transporter = nodeMailer.createTransport({
-  host: "sandbox.smtp.mailtrap.io",
-  port: 2525,
+  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
   auth: {
-    user: "f5e5650727a34a",
-    pass: "e376b79b600b6d"
+    user: "tests11336699@gmail.com",
+    pass: "bdeetuxivplctayo"
   }
 });
 
 
-let renderTemplate = (data, relativePath)=>{
-    let mailHTML;
-    ejs.renderFile(
-        path.join(__dirname,'../views/mailer', relativePath)),
-        data,
-        function(err, template){
-            if(err){console.log("Error loading template", err);return;}
-            mailHTML = template;
-        }   
-        return mailHTML;
-}
 
+let renderTemplate = (data, relativePath) => {
+  let mailHTML;
+  ejs.renderFile(
+      path.join(__dirname, '../views/mailer', relativePath),
+      data,
+      function(err, template){
+       if (err){console.log('error in rendering template', err); return}
+      //  console.log(template)
+       mailHTML = template;
+      }
+  )
+
+  return mailHTML;
+}
 
 
 

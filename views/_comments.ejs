@@ -1,16 +1,21 @@
 <li id="comment-<%= comment._id %>" class="comment">
     <div class="comment-user">
         <p>
-            <%= comment.user.name%>
+            <%= comment.user.name %>
                 <br>
                 <%= comment.createdAt.toString().substring(4, 21); %>
         </p>
-        <p class="comment-delete">
-            <%if(locals.user && comment.user.id==locals.user.id ){%>
-                <a href="comments/delete/<%= comment.id %>" class="delete-comment" id="<%= comment.id  %>"><i
+        <div class="comment-actions">
+            <a href="/likes/toggle/?id=<%=comment._id%>&type=Comment" class="toggle-like-button">
+                <%=comment.likes.length%> <i class="fa-regular fa-heart"></i>
+            </a>
+            
+            <%if(locals.user && comment.user._id==locals.user.id ){%>
+
+                <a href="comments/delete/<%= comment._id %>" class="delete-comment" id="<%= comment._id  %>"><i
                         class="fa-regular fa-trash-can"></i></a>
                 <%}%>
-        </p>
+        </div>
     </div>
     <div class="comment-content">
         <p>

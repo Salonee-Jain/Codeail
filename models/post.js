@@ -26,10 +26,13 @@ const postSchema = new mongoose.Schema({
         },
 
     ],
-    postpic:{
-        type: String,
-    }
-
+    likes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Like'
+        }
+    ]
+    
 
 }, {
     timestamps: {

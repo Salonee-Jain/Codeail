@@ -1,5 +1,10 @@
-<div class="new_comment">
-    <p>HI <%= comment.user%> </p>
-    <p>You comment has been posted</p>
+<div>
 
+    <p>Hi <%= comment.user.name%>!</p>
+    <br>
+    <br>
+    <p>Your comment <strong><%= comment.content %></strong> just got pubished on codeial. <%= comment.post %></p> 
+    <br>
+    <br>
+    <p>Thanks!</p>
 </div>
