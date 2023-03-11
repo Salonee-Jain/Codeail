@@ -3,7 +3,10 @@
     margin: 1% 2%;
     color: white;
     padding: 2%;
-
+    .friends-heading{
+        margin-left: 12px;
+        margin-bottom: 10px;
+    }
     .friends {
         font-size: 0.8rem;
         width: 100%;
@@ -200,9 +203,5 @@
             }
         }
     }
-    hr {
-        height: 1px;
-        background-color: var(--color-border-faint);
-        border: none;
-    }
+   
 }

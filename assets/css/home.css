@@ -4,6 +4,10 @@
   color: white;
   padding: 2%;
 }
+.aside-right .friends-heading {
+  margin-left: 12px;
+  margin-bottom: 10px;
+}
 .aside-right .friends {
   font-size: 0.8rem;
   width: 100%;
@@ -191,9 +195,4 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.post-card hr {
-  height: 1px;
-  background-color: var(--color-border-faint);
-  border: none;
 }

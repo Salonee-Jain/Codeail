@@ -37,7 +37,6 @@ passport.deserializeUser((id, done)=>{
 
 //check user authentication 
 passport.checkAuthentication = function(req, res, next){
-
     //this is is method that passport puts in req
     //if user is authenticated pass to the next cantroller function 
     if(req.isAuthenticated()){

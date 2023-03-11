@@ -6,7 +6,7 @@
                 <%= comment.createdAt.toString().substring(4, 21); %>
         </p>
         <div class="comment-actions">
-            <a href="/likes/toggle/?id=<%=comment._id%>&type=Comment" class="toggle-like-button">
+            <a href="/likes/toggle/?id=<%=comment._id%>&type=Comment" class="toggle-like-button" data-likes="<%=comment.likes.length%>">
                 <%=comment.likes.length%> <i class="fa-regular fa-heart"></i>
             </a>
             

@@ -1,6 +1,7 @@
 const Comment = require('../models/comment')
 const Post = require('../models/post');
-const User = require('../models/user')
+const User = require('../models/user');
+const Chat = require('../models/chat')
 
 module.exports.home = async function (req, res) {
     try {
@@ -21,10 +22,12 @@ module.exports.home = async function (req, res) {
             
         // console.log(posts[0])
         let users = await User.find({});
+        let chats = await Chat.find({});
         return res.render('home', {
             title: "Home",
             posts: posts,
             all_users: users,
+            chats: chats,
 
         });
     } catch (err) {
@@ -33,6 +36,12 @@ module.exports.home = async function (req, res) {
     }
 
 
+}
+
+module.exports.chat=(req, res)=>{
+    return res.render('_chatengine',{
+        title: "chatbox"
+    })
 }
 
 // module.exports.actionName = function(req, res){}

@@ -6,6 +6,8 @@
     --main-light-gray: rgb(56,67,79);
     --main-dark: rgb(18, 15, 26);
     --sub-links: rgb(164, 164, 164);
+    --comment-bg:  rgb(60, 67, 69);
+
    }
 *{
     font-weight: 300;
@@ -20,9 +22,15 @@ body{
     background-color: var(--main-body);
  
 }
+hr {
+    height: 1px;
+    background-color: var(--color-border-faint);
+    border: none;
+}
 
 main{
-   padding: 0% 1%;
+    height: auto;
+   padding: 0% 2%;
    width: 100%;
     display: flex;
     justify-content: center;

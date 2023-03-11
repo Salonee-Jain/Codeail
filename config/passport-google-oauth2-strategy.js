@@ -25,7 +25,7 @@ passport.use(new GoogleStrategy({
                     password: crypto.randomBytes(20).toString('hex'),
                     avatar: profile.photos[0].value,
                 }, function (err, user) {
-                    if (err) { console.log("Error in google strategy passport: ", error); return; }
+                    if (err) { console.log("Error in google strategy passport: ", err); return; }
                     return done(null, user)
                 });
             }

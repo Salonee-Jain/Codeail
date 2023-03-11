@@ -12,8 +12,12 @@
                     let newPost = createnewPostdom(data.data.post)
                     $('.post-list').prepend(newPost);
                     deletePost($('.delete-post', newPost) );
-                      // call the create comment class
+                 
+                    // call the create comment class
                     new PostComments(data.data.post._id);
+
+                    // CHANGE :: enable the functionality of the toggle like button on the new post
+                    new ToggleLike($(' .toggle-like-button', newPost));
                     $("#posts").val('');
                     new Noty({
                         theme: 'semanticui',
@@ -72,8 +76,8 @@
     
         <div class="post-actions">
     
-            <a class="toggle-like-button" data-likes="0" href="/likes/toggle/?id=${posts._id}&type=Post">
-                0 Likes
+            <a href="/likes/toggle/?id=${posts._id}&type=Post" class="toggle-like-button" data-likes="0">
+                0 Like
             </a>
     
             <a href="" class="share"><i class="fa-regular fa-comment"></i> Share</a>
@@ -139,7 +143,6 @@
 
             // get the post's id by splitting the id attribute
             let postId = self.prop('id').split("-")[1]
-   
             new PostComments(postId);
         });
     }

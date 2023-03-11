@@ -10,7 +10,7 @@ class ToggleLike{
         $(this.toggler).click(function(e){
             e.preventDefault();
             let self = this;
-
+           
             // this is a new way of writing ajax which you might've studied, it looks like the same as promises
             $.ajax({
                 type: 'POST',
@@ -28,7 +28,13 @@ class ToggleLike{
 
 
                 $(self).attr('data-likes', likesCount);
-                $(self).html(`${likesCount} Likes`);
+                console.log(self)
+                if(data.data.posticon == true){
+                    $(self).html(`${likesCount} <i class="fa-regular fa-heart"></i> Like`);
+                }else{
+                    $(self).html(`${likesCount} <i class="fa-regular fa-heart"></i>`);
+                }
+               
 
             })
             .fail(function(errData) {

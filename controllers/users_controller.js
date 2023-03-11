@@ -5,21 +5,17 @@ const passport = require('../config/passport-local-strategy');
 const { deserializeUser } = require('../config/passport-local-strategy');
 const fs = require('fs');
 const path = require('path')
+const Chat = require('../models/chat')
 
 //render the profile page
 module.exports.profile = async function (req, res) {
-    // User.findById(req.params.profileId, (err, user) => {
-    //     return res.render('user_profile', {
-    //         title: 'User Profile',
-    //         user_profile: user
-    //     })
-    // })
-
 
     let user = await User.findById(req.params.profileId);
+    let chats = await Chat.find({});
     return res.render('user_profile', {
         title: 'User Profile',
-        user_profile: user
+        user_profile: user,
+        chats: chats,
     })
 }
 
@@ -31,22 +27,14 @@ module.exports.signUp = function (req, res) {
     })
 }
 
-module.exports.updateform = function (req, res) {
+module.exports.updateform = async function (req, res) {
+    let chats = await Chat.find({});
     return res.render('updateform', {
-        title: "Update"
+        title: "Update",
+        chats:chats,
     })
 }
 module.exports.update = async function (req, res) {
-    // if (req.params.profileId == req.user.id) {
-    //     User.findByIdAndUpdate(req.params.profileId, req.body, (err, user) => {
-    //         if (err) { console.log("error in updating"); return; }
-    //         req.flash('success', 'Profile updated')
-    //         return res.redirect(`/users/profile/${req.params.profileId}/`)
-    //     })
-    // } else {
-    //     req.flash('error', 'Unorthorized')
-    //     return res.status(401).send("unauthorized")
-    // }
 
     if (req.params.profileId == req.user.id) {
         try {
@@ -66,7 +54,7 @@ module.exports.update = async function (req, res) {
             }
             user.save();
             req.flash('success', 'Profile updated')
-            return res.redirect('back');
+            return res.redirect('/');
         })
 
 

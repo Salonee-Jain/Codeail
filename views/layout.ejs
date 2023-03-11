@@ -31,7 +31,9 @@
 
 
         </main>
-
+       <%if(locals.user){%>
+ 
+       <%}%>
         <%- include('_footer'); %>
 
             <%- script %>
@@ -62,8 +64,15 @@
 
                 </script>
 
+<%- include('_chatengine'); %>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
+<script src="/js/chat_engine.js"></script>
+<% if (locals.user){ %>
+<script>
+    new ChatEngine('user-chat-box', '<%= locals.user.email %>')
+</script>
+<% } %>
 </body>
 
 </html>

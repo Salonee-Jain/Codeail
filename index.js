@@ -7,11 +7,24 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('./config/passport-local-strategy')
 const MongoStore = require('connect-mongo')(session);
-const sassMiddleware = require('sass')
+
 const flash = require('connect-flash');
 const cMiddleware = require('./config/middleware');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const passportJWT = require('./config/passport-jwt-strategy');
+// const cors = require('cors');
+// app.use(cors())
+// app.use(cors({
+//     origin: 'http://localhost:8000',
+//     methods: "POST",
+
+// }));
+
+
+const chatServer = require('http').createServer(app);
+const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
+chatServer.listen('5000');
+console.log("Chat server running on port:  5000.")
 
 
 app.use(express.urlencoded());

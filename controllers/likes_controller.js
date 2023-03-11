@@ -9,12 +9,14 @@ module.exports.toggleLike = async function(req, res){
         // likes/toggle/?id=abcdef&type=Post
         let likeable;
         let deleted = false;
-
+        let posticon = true;
 
         if (req.query.type == 'Post'){
+
             likeable = await Post.findById(req.query.id).populate('likes');
         }else{
             likeable = await Comment.findById(req.query.id).populate('likes');
+            posticon=false;
         }
 
 
@@ -50,7 +52,8 @@ module.exports.toggleLike = async function(req, res){
         return res.json(200, {
             message: "Request successful!",
             data: {
-                deleted: deleted
+                deleted: deleted,
+                posticon: posticon,
             }
         })
 

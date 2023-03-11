@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/chatbox.css">
+<div class="user-chat-box">
+    <h2 class="chat-heading">
+        Chat Bot
+    </h2>
+    <hr style="height: 3px;">
+    <ul class="chat-messages-list">
+        <%for(let chat of chats){%>
+            <%if(locals.user.email!=chat.user_email){%>
+                <li class="other-message">
+                    <span><%=chat.message%></span>
+                    <sub><%=chat.user_email%></sub>
+
+                    <hr>
+                </li>
+            <%}else{%>
+                <li class="self-message">
+                    <span><%=chat.message%></span>
+                    <sub><%=chat.user_email%></sub>
+                   <hr>
+                </li>
+            <%}%>
+        <%}%>
+    </ul>
+    <div id="chat-message-input-container">
+        <input type="text" id="chat-message-input" placeholder="Type message here">
+        <button id="send-message">Send</button>
+    </div>
+
+</div>
