@@ -2,13 +2,13 @@ const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const crypto = require('crypto');
 const User = require('../models/user')
-
+const env = require('./environment')
 ///https://console.cloud.google.com/apis/credentials/oauthclient/388485113850-hst46lr1p8issh3heakmrbgcd2m3atln.apps.googleusercontent.com?project=codeail-sample-379117
 
 passport.use(new GoogleStrategy({
-    clientID: '388485113850-hst46lr1p8issh3heakmrbgcd2m3atln.apps.googleusercontent.com',
-    clientSecret: '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',
-    callbackURL: 'http://localhost:8000/users/auth/google/callback',
+    clientID: env.googleClientID,
+    clientSecret: env.googleClientSecret,
+    callbackURL: env.googleCallbackURL,
    
 },
     function (accessToken, refreshToken, profile, done) {

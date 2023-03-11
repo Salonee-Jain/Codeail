@@ -2,17 +2,8 @@ const nodeMailer = require('nodemailer');
 const ejs = require('ejs');
 const path = require('path');
 var smtpTransport = require("nodemailer-smtp-transport");
-
-var transporter = nodeMailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: "tests11336699@gmail.com",
-    pass: "bdeetuxivplctayo"
-  }
-});
+const env = require('./environment');
+var transporter = nodeMailer.createTransport(env.smtp_obj);
 
 
 

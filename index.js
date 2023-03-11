@@ -12,6 +12,8 @@ const flash = require('connect-flash');
 const cMiddleware = require('./config/middleware');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const passportJWT = require('./config/passport-jwt-strategy');
+
+const env = require('./config/environment');
 // const cors = require('cors');
 // app.use(cors())
 // app.use(cors({
@@ -51,7 +53,7 @@ app.use(session({
     name:'Codeail',
 
     //TODO change secret before deployment
-    secret: 'universe',
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie:{
