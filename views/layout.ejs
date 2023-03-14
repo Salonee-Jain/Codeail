@@ -32,7 +32,7 @@
 
         </main>
        <%if(locals.user){%>
- 
+        <%- include('_chatengine'); %>
        <%}%>
         <%- include('_footer'); %>
 
@@ -64,7 +64,6 @@
 
                 </script>
 
-<%- include('_chatengine'); %>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
 <script src="/js/chat_engine.js"></script>

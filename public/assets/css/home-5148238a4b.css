@@ -1,0 +1,198 @@
+.aside-right {
+  width: 30%;
+  margin: 1% 2%;
+  color: white;
+  padding: 2%;
+}
+.aside-right .friends-heading {
+  margin-left: 12px;
+  margin-bottom: 10px;
+}
+.aside-right .friends {
+  font-size: 0.8rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.aside-right .friends .friend-name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  text-decoration: none;
+}
+.aside-right .friends .follow {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-weight: lighter;
+  background-color: var(--main-purple);
+}
+.aside-right .friends .follow:hover {
+  background-color: transparent;
+  color: var(--main-purple);
+}
+
+.main-shadow {
+  border-radius: 5px;
+  box-shadow: 29px 12px 15px -3px rgba(0, 0, 0, 0.1);
+  background-color: var(--main-header-footer);
+}
+
+.feed-post {
+  width: 55%;
+}
+.feed-post .post-heading {
+  color: white;
+}
+.feed-post .post-list {
+  width: 100%;
+}
+.feed-post #new-post-form {
+  margin: 2% 0%;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.feed-post #new-post-form textarea,
+.feed-post #new-post-form button {
+  overflow: auto;
+  resize: none;
+  border: none;
+  outline: none;
+  margin-top: 0.5rem;
+  background-color: var(--main-light-gray);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+}
+.feed-post #new-post-form textarea::placeholder,
+.feed-post #new-post-form button::placeholder {
+  color: rgb(197, 193, 193);
+}
+.feed-post #new-post-form textarea {
+  margin-right: 10px;
+}
+.feed-post #new-post-form button {
+  background-color: var(--main-purple);
+}
+
+@media (max-width: 400px) {
+  .feed-post {
+    width: 100%;
+  }
+}
+.post-card {
+  color: white;
+  margin-top: 2%;
+  padding: 1% 2%;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 29px 12px 15px -3px rgba(0, 0, 0, 0.1);
+  background-color: var(--main-header-footer);
+  display: flex;
+  flex-direction: column;
+}
+.post-card .post-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 5%;
+}
+.post-card .post-user p {
+  margin-left: 10px;
+}
+.post-card .post-user #time {
+  font-size: 0.8rem;
+  color: var(--sub-links);
+}
+.post-card .post-content {
+  font-size: 1rem;
+  margin: 10px;
+}
+.post-card .post-actions {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.post-card .post-actions .like-number {
+  color: var(--sub-links);
+  font-weight: lighter;
+  font-size: 0.8rem;
+}
+.post-card .post-actions a {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-left: 10px;
+  color: var(--sub-links);
+  font-weight: lighter;
+  font-size: 0.8rem;
+}
+.post-card .post-actions a:hover {
+  background-color: var(--color-border-faint);
+}
+.post-card .new-comment-form {
+  display: flex;
+}
+.post-card .new-comment-form .comment-text-area,
+.post-card .new-comment-form button {
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  margin: 0.5rem 1rem;
+  background-color: var(--main-light-gray);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.post-card .new-comment-form .comment-text-area::placeholder,
+.post-card .new-comment-form button::placeholder {
+  color: rgb(197, 193, 193);
+}
+.post-card .new-comment-form .comment-text-area {
+  border-radius: 10px;
+  width: 100%;
+  overflow: auto;
+  resize: none;
+}
+.post-card .new-comment-form button {
+  background-color: var(--main-purple);
+}
+.post-card .comment-list li {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: rgb(60, 67, 69);
+  padding: 1rem;
+  margin: 10px;
+  border-radius: 0px 15px 15px 15px;
+}
+.post-card .comment-list li .comment-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--sub-links);
+  margin-bottom: 10px;
+}
+.post-card .comment-list li .comment-user .comment-actions a {
+  color: var(--sub-links);
+  font-size: 1rem;
+  text-decoration: none;
+  margin-right: 0.5rem;
+}
+.post-card .comment-list li .comment-user .comment-actions a:hover {
+  color: var(--main-purple);
+}
+.post-card .comment-list li .comment-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

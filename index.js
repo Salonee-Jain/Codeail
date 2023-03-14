@@ -1,5 +1,10 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const dotEnv = require('dotenv');
+dotEnv.config();
+const env = require('./config/environment');
+const loger = require('morgan')
+
 const app = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
@@ -12,8 +17,6 @@ const flash = require('connect-flash');
 const cMiddleware = require('./config/middleware');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const passportJWT = require('./config/passport-jwt-strategy');
-
-const env = require('./config/environment');
 // const cors = require('cors');
 // app.use(cors())
 // app.use(cors({
