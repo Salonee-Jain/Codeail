@@ -58,14 +58,14 @@ class ChatEngine{
             if (data.user_email == self.userEmail){
                 messageType = 'self-message';
             }
-
+            newMessage.append($('<sub>', {
+                'html': data.user_email
+            }));
             newMessage.append($('<span>', {
                 'html': data.message
             }));
 
-            newMessage.append($('<sub>', {
-                'html': data.user_email
-            }));
+           
             newMessage.append($('<hr>'))
 
 

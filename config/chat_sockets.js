@@ -1,4 +1,10 @@
 const Chat = require('../models/chat')
+
+// const env = require('./environment');
+// const app = require('express')();
+// const loger = require('morgan')
+
+// app.use(loger(env.morgan.mode, env.morgan.options))
 module.exports.chatSockets = function(socketServer){
     let io= require('socket.io')(socketServer,{
         cors:{
@@ -6,7 +12,7 @@ module.exports.chatSockets = function(socketServer){
         }})
 
     io.sockets.on('connection', function(socket){
-        console.log('new connection received', socket.id);
+        // console.log('new connection received', socket.id);
 
         socket.on('disconnect', function(){
             console.log('socket disconnected!');
@@ -14,7 +20,7 @@ module.exports.chatSockets = function(socketServer){
 
         
         socket.on('join_room', function(data){
-            console.log('joining request rec.', data);
+            // console.log('joining request rec.', data);
 
             socket.join(data.chatroom);
 

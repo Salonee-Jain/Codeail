@@ -8,15 +8,17 @@
         <%for(let chat of chats){%>
             <%if(locals.user.email!=chat.user_email){%>
                 <li class="other-message">
-                    <span><%=chat.message%></span>
                     <sub><%=chat.user_email%></sub>
+                    <span><%=chat.message%></span>
+                   
 
                     <hr>
                 </li>
             <%}else{%>
-                <li class="self-message">
-                    <span><%=chat.message%></span>
+                <li class="self-message">     
                     <sub><%=chat.user_email%></sub>
+                    <span><%=chat.message%></span>
+               
                    <hr>
                 </li>
             <%}%>

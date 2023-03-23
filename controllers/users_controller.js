@@ -81,6 +81,7 @@ module.exports.signIn = function (req, res) {
         console.log("already signed in")
         return res.redirect('/users/profile')
     }
+    // console.log("signed in")
     return res.render('user_sign_in', {
         title: "Codeail | Sign In"
     })
@@ -107,12 +108,13 @@ module.exports.create = async function (req, res) {
         req.flash('error', "passwords do not match")
         return res.redirect('back');
     }
+    
     /*
       User.findOne({ email: req.body.email }, function (err, user) {
           if (err) { console.log('error in finding user in signing up'); return }
   
           if (!user) {
-              User.create(req.body, function (err, user) {
+              await User.create(req.body, function (err, user) {
                   if (err) { console.log('error in creating user while signing up'); return }
   
                   return res.redirect('/users/sign-in');

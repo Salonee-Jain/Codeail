@@ -6,6 +6,7 @@ const env = require('./config/environment');
 const loger = require('morgan')
 
 const app = express();
+require('./config/view-helpers')(app);
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
@@ -38,6 +39,7 @@ app.use(cookieParser());
 
 app.use(express.static('./assets'));
 app.use('/uploads', express.static(__dirname+'/uploads'))
+app.use(loger(env.morgan.mode, env.morgan.options))
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
