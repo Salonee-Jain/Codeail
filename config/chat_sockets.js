@@ -10,7 +10,7 @@ module.exports.chatSockets = function(socketServer){
         cors:{
             origin:"*"
         }})
-
+console.log("conected")
     io.sockets.on('connection', function(socket){
         // console.log('new connection received', socket.id);
 
