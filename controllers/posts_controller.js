@@ -2,39 +2,47 @@ const User = require('../models/user');
 const Post = require('../models/post');
 const Comment = require('../models/comment')
 const Like = require('../models/like');
-
+const fs = require('fs');
+const path = require('path')
 //post the data and stors in db
 module.exports.create = async function (req, res) {
     try {
-        let post = await Post.create({
-            content: req.body.posts,
-            user: req.user._id,
-        })
      
-
-        // Post.uploadedPostpic(req, res, function(err){
-        //     if(err){console.log(err)}
-        //    console.log(req.file)
-        // })
-    
-
-        ///populating the user from post
-      
-        
-       
-        
-        if(req.xhr){
-            post = await post.populate('user', 'name avatar').execPopulate();
-            return res.status(200).json({
-                data:{
-                    //passing the populated one
-                    post: post,
-                },
-                message: "Post created"
+        Post.uploadedPostpic(req, res, async function(err){
+          console.log(req.body)
+            if(err){console.log(err)}
+            let post = await Post.create({
+                content: req.body.posts,
+                user: req.user._id,
             })
-        }
+    
+          if(req.file){
+                 
+            post.postpic = await Post.postPicPath + '/' + req.file.filename;
+            post.save();
+         
+          }
+            
+            if(req.xhr){
+                post = await post.populate('user', 'name avatar').execPopulate();
+                return res.status(200).json({
+                    data:{
+                        //passing the populated one
+                        post: post,
+                        img: req.file,
+                    },
+                    message: "Post created"
+                })
+            }
+            
         req.flash('success', 'Post created')
         return res.redirect('/');
+        })
+    
+
+      
+
+      
     } catch(err) {
         console.log("Error: ", err)
     }
@@ -54,8 +62,10 @@ module.exports.delete = async function (req, res) {
             await Like.deleteMany({likeable: post, onModel: 'Post'});
             await Like.deleteMany({_id: {$in: post.comments}});
 
+            if ((__dirname, '..', post.postpic)!=undefined && fs.existsSync(path.join(__dirname, '..', post.postpic))) {
+                fs.unlinkSync(path.join(__dirname, '..', post.postpic));
+            }
             post.remove();
-            
             await Comment.deleteMany({ post: req.params.postId });
             if(req.xhr){
                 return res.status(200).json({
@@ -72,7 +82,7 @@ module.exports.delete = async function (req, res) {
             return res.redirect('back')
         }
         return res.redirect('/')
-    } catch {
+    } catch(err) {
         console.log("Error: ", err);
         return;
     }

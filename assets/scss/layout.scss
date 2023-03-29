@@ -7,6 +7,7 @@
     --main-dark: rgb(18, 15, 26);
     --sub-links: rgb(164, 164, 164);
     --comment-bg:  rgb(60, 67, 69);
+    --sign-color:  rgb(175, 175, 175);
 
    }
 *{
@@ -40,6 +41,7 @@ main{
 
 
 .sign-container {
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,8 +51,15 @@ main{
     padding: 2rem;
     border-radius: 5px;
 
+    p{
+        margin-top: 20px;
+        color:  var(--sign-color);
+        font-size: 0.8rem;
+    }
     .sign-heading{
+       
         color: white;
+     
     }
     form {
         display: flex;

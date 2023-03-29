@@ -1,13 +1,24 @@
 {
+
     //method to post data 
     let createPost = function () {
+
         let newPostform = $('#new-post-form');
+        
+      
         newPostform.submit((e) => {
             e.preventDefault();
+            let formData = new FormData()
+            console.log($('#posts').val());
+            formData.append('posts', $('#posts').val()) 
+            formData.append('postpic', document.getElementById('postpic').files[0]) 
             $.ajax({
                 type: 'post',
                 url: '/posts/create',
-                data: newPostform.serialize(),
+                processData: false,
+                contentType: false,
+                cache: false,
+                data:  formData,
                 success: (data) => {
                     let newPost = createnewPostdom(data.data.post)
                     $('.post-list').prepend(newPost);
@@ -30,7 +41,7 @@
 
                    
                 },
-                error: (error) => { console.log("error occured ", error.responseText); }
+                error: (error) => { console.log("error occured ", error); }
 
             })
 
@@ -63,9 +74,11 @@
             </div>
         </div>
         <div class="post-content">
+        
             <div class="post-image" style="width:100%; height: auto; margin-bottom:20px">
-             
+                <img src="${posts.postpic}" alt="" style="width:100%; height:auto">
             </div>
+           
             <div class="post-text">
                 ${posts.content }
             </div>

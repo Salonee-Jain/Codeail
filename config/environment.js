@@ -14,7 +14,7 @@ const accessLogStream = rfs.createStream('access.log',{
 
 const development = {
     name: "development",
-    asset_path: '/assets',
+    asset_path: './assets',
     session_cookie_key: 'universe',
     db: 'codeail_development',
     atlas_db_URI:`mongodb+srv://${process.env.ATLAS_USER}:${process.env.ATLAS_PASS}@cluster0.umrwoom.mongodb.net/test?retryWrites=true&w=majority`,

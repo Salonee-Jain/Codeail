@@ -9,10 +9,10 @@
 
     <section class="feed-post">
         <!-- <h2 class="post-heading">Posts</h2> -->
-        <form action="posts/create" id="new-post-form" method="POST" class="main-shadow" enctype="multipart/form-data">
+        <form action="posts/create" id="new-post-form" method="POST" enctype="multipart/form-data" class="main-shadow" >
             <textarea name="posts" id="posts" cols="70" rows="4" placeholder="Add post.." required></textarea>
-            <!-- <input id="postpic" type="file" name="postpic" placeholder="Post picture"> -->
-            <button type="submit">Post</button>
+            <input type="file" name="postpic" id="postpic"  placeholder="Profile picture">
+            <input type="submit" value="Post">
         </form>
 
         <!-- post list -->
@@ -25,36 +25,77 @@
     </section>
 
 
-    <div class="aside-right main-shadow">
-        <h1 class="friends-heading">
-            Friends
-        </h1>
-
-        <ul class="friend-list">
-            <%for(users of all_users){%>
-         
-                <li class="friends">
-
-                    <a href="/users/profile/<%= users.id %>" class="friend-name">
-                        <%if(users.avatar){%>
-                            <img src="<%= users.avatar %>" alt="<%= users.name %>"
-                                style="width:40px; height:40px; border-radius:50%; margin: 5px;">
-                            <%}else{%>
-                                <img src="/images/profile.png" alt=""
-                                    style="width:40px; height:40px; border-radius:50%; margin: 5px;">
+    <div class="aside-right">
+        <div class="frs  main-shadow">
+            <h1 class="friends-heading">
+                Friends
+            </h1>
+    
+            <ul class="friend-list">
+                <%for(users of all_users){%>
+             
+                    <%if(locals.user.friendships.includes(users.id)){%>
+                        <li class="friends">
+    
+                            <a href="/users/profile/<%= users.id %>" class="friend-name">
+                                <%if(users.avatar){%>
+                                    <img src="<%= users.avatar %>" alt="<%= users.name %>"
+                                        style="width:40px; height:40px; border-radius:50%; margin: 5px;">
+                                    <%}else{%>
+                                        <img src="/images/profile.png" alt=""
+                                            style="width:40px; height:40px; border-radius:50%; margin: 5px;">
+                                        <%}%>
+        
+                                            <span class="white">
+                                                <%= users.name %>
+                                            </span>
+        
+                            </a>
+                           
+                           
+                                <% if((locals.user.friendships.includes(users.id))){%>
+                                    
+                                <a href="users/message_friend/<%=users._id%>" class="follow message">Message</a>
                                 <%}%>
-
-                                    <span class="white">
-                                        <%= users.name %>
-                                    </span>
-
-                    </a>
-
-                    <a href="" class="follow">Follow</a>
-                </li>
-
-                <%}%>
-        </ul>
+                               
+                        </li>
+                        <%}%>
+    
+                    <%}%>
+            </ul>
+        </div>
+        <div class="frs  main-shadow">
+            <h1 class="friends-heading users-heading">
+                Users
+            </h1>
+    
+            <ul class="friend-list">
+                <%for(users of all_users){%>
+             
+                    <%if(!(locals.user.friendships.includes(users.id)) && locals.user.id!=users.id){%>
+                        <li class="all-users friends">
+    
+                            <a href="/users/profile/<%= users.id %>" class="friend-name">
+                                <%if(users.avatar){%>
+                                    <img src="<%= users.avatar %>" alt="<%= users.name %>"
+                                        style="width:40px; height:40px; border-radius:50%; margin: 5px;">
+                                    <%}else{%>
+                                        <img src="/images/profile.png" alt=""
+                                            style="width:40px; height:40px; border-radius:50%; margin: 5px;">
+                                        <%}%>
+        
+                                            <span class="white">
+                                                <%= users.name %>
+                                            </span>
+        
+                            </a>
+                               
+                        </li>
+                        <%}%>
+    
+                    <%}%>
+            </ul>
+        </div>
     </div>
   
 
@@ -71,13 +112,13 @@
             </div>
         
         <%}%>
-
-
+<!--  -->
             <script src="/js/home_post_comments.js"></script>
             <script src="/js/home_posts.js"></script>
 
             <!-- CHANGE :: import the script file for toggle likes, also run it over for the already present posts and comments on the page -->
-            <script src="js/toggle_likes.js"></script>
+            <script src="/js/toggle_likes.js"></script>
+           
             <script>
                 $('.toggle-like-button').each(function () {
                     let self = this;

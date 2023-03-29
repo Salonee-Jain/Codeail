@@ -22,11 +22,26 @@ const userSchema = new mongoose.Schema({
         type: String
     },
     friendships: [
+        
         { 
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Friendship' 
+            ref: 'User' 
         }
-    ]
+    ],
+    pending: [
+        
+        { 
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
+    sent: [
+        
+        { 
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
 }, {
     
     timestamps: true

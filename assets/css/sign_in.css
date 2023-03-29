@@ -1,0 +1,12 @@
+.forget-password {
+  margin-top: 10%;
+}
+.forget-password a {
+  color: var(--sign-color);
+  font-size: 0.8rem;
+}
+
+hr {
+  margin-top: 10%;
+  width: 100%;
+}

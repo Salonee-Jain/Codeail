@@ -15,11 +15,11 @@ class ChatEngine{
 
 
     connectionHandler(){
-        console.log(this.userEmail)
+        // console.log(this.userEmail)
         let self = this;
 
         this.socket.on('connect', function(){
-            console.log('connection established using sockets...!');
+            // console.log('connection established using sockets...!');
 
 
             self.socket.emit('join_room', {
@@ -28,7 +28,7 @@ class ChatEngine{
             });
 
             self.socket.on('user_joined', function(data){
-                console.log('a user joined!', data);
+                // console.log('a user joined!', data);
             })
 
 
@@ -42,7 +42,8 @@ class ChatEngine{
                 self.socket.emit('send_message', {
                     message: msg,
                     user_email: self.userEmail,
-                    chatroom: 'codeail'
+                    chatroom: 'codeail',
+            
                 });
             }
         });

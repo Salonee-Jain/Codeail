@@ -1,9 +1,13 @@
 .aside-right {
     width: 30%;
     margin: 1% 2%;
-    color: white;
-    padding: 2%;
-    .friends-heading{
+    .frs {
+        width: 100%;
+        margin-bottom: 10%;
+        color: white;
+        padding: 2%;
+    }
+    .friends-heading {
         margin-left: 12px;
         margin-bottom: 10px;
     }
@@ -20,6 +24,7 @@
             color: white;
             text-decoration: none;
         }
+
         .follow {
             margin: 0.5rem;
             padding: 0.5rem;
@@ -33,6 +38,7 @@
                 color: var(--main-purple);
             }
         }
+        
     }
 }
 
@@ -57,8 +63,7 @@
         align-items: center;
         justify-content: space-between;
 
-        textarea,
-        button {
+        textarea {
             overflow: auto;
             resize: none;
             border: none;
@@ -72,12 +77,16 @@
                 color: rgb(197, 193, 193);
             }
         }
-
+        input[type="submit"] {
+            border: none;
+            outline: none;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            background-color: var(--main-purple);
+        }
         textarea {
             margin-right: 10px;
-        }
-        button {
-            background-color: var(--main-purple);
         }
     }
 }
@@ -120,7 +129,7 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        .like-number{
+        .like-number {
             color: var(--sub-links);
             font-weight: lighter;
             font-size: 0.8rem;
@@ -190,10 +199,9 @@
                     font-size: 1rem;
                     text-decoration: none;
                     margin-right: 0.5rem;
-                    &:hover{
+                    &:hover {
                         color: var(--main-purple);
                     }
-                   
                 }
             }
             .comment-content {
@@ -203,5 +211,4 @@
             }
         }
     }
-   
 }

@@ -23,6 +23,7 @@ module.exports.home = async function (req, res) {
         // console.log(posts[0])
         let users = await User.find({});
         let chats = await Chat.find({});
+        // console.log(chats)
         return res.render('home', {
             title: "Home",
             posts: posts,

@@ -6,13 +6,15 @@ const Chat = require('../models/chat')
 
 // app.use(loger(env.morgan.mode, env.morgan.options))
 module.exports.chatSockets = function(socketServer){
+    let users = [];
     let io= require('socket.io')(socketServer,{
         cors:{
             origin:"*"
         }})
-console.log("conected")
+
     io.sockets.on('connection', function(socket){
         // console.log('new connection received', socket.id);
+        // users[username] = socket.id;
 
         socket.on('disconnect', function(){
             console.log('socket disconnected!');
@@ -29,6 +31,7 @@ console.log("conected")
 
         // CHANGE :: detect send_message and broadcast to everyone in the room
         socket.on('send_message', function(data){
+            console.log(data)
             Chat.create(data)
             io.in(data.chatroom).emit('receive_message', data);
         });

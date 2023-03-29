@@ -1,3 +1,4 @@
+<% if((locals.user.friendships.includes(post.user.id)) || locals.user.id==post.user.id){%>
 <div class="post-card" id="post-<%= post.id %>">
     <div class="post-user">
         <div class="profile-img" style=" border-radius:50%; height: 50px; width: 50px; overflow:hidden">
@@ -19,9 +20,11 @@
         </div>
     </div>
     <div class="post-content">
-        <div class="post-image" style="width:100%; height: auto; margin-bottom:20px">
-            <!-- <img src="/images/s.jpg" alt="" style="width:100%; height:100%"> -->
+       <%if(post.postpic){%>
+        <div class="post-image" style="width:100%; height: 80%; margin-bottom:20px; overflow:hidden">
+            <img src="<%= post.postpic %>" alt="" style="width:80%; height:80%">
         </div>
+        <%}%>
         <div class="post-text">
             <%= post.content %>
         </div>
@@ -62,3 +65,4 @@
                 <%}%>
     </ul>
 </div>
+<%}%>

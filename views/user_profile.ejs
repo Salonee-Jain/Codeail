@@ -19,13 +19,31 @@
                 <%= user_profile.email %>
             </p>
         </div>
-
+     
         
         <%if(locals.user._id==user_profile.id){%>
             <div class="profile-actions">
 
                 <a href="/users/updateform" class="edit"><i class="fa-regular fa-pen-to-square"></i> Edit Profile</a>
                 <a href="/users/delete/<%= user_profile.id %>" class="delete"><i class="fa-regular fa-trash-can"></i> Remove Profile</a>
+            </div>
+        <%}else{%>
+            <div class="profile-actions">
+            <% if(!(locals.user.friendships.includes(user_profile.id))){%>
+
+                <% if((locals.user.sent.includes(user_profile.id))){%>
+                    <a href="/users/remove_req/<%=user_profile._id%>" class="edit box">Requested</a>
+                <%}else if((locals.user.pending.includes(user_profile.id))){%>
+                    <a href="/users/accept_req/<%=user_profile._id%>" class="edit box">Accept</a>
+                <%}else{%>
+                    <a href="/users/create_friend/<%=user_profile._id%>" class="follow edit">Follow</a>
+                <%}%>
+                         
+            
+              
+                <%}else{%>
+                <a href="/users/remove_friend/<%=user_profile._id%>" class="remove edit">Unfollow</a>
+                <%}%>
             </div>
         <%}%>
 

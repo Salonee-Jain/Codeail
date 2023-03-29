@@ -49,5 +49,16 @@
     text-transform:  uppercase;
 }
 
+.follow {
+    color: white!important;
+    background-color: var(--main-purple);
+   
+}
+.remove, .delete{  
+    color: white!important; 
+    background-color: rgb(247, 62, 102);
+}
 
-
+.box{
+    background-color: var(--color-border-faint);
+}

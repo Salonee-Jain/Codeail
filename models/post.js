@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const multer = require('multer')
 const path = require('path');
-const PICTURE_PATH = path.join('/uploads/posts/post_pictures');
+const PICTURE_PATH = path.join('/uploads/posts/postpics');
 
 
 const postSchema = new mongoose.Schema({
@@ -32,7 +32,10 @@ const postSchema = new mongoose.Schema({
             ref: 'Like'
         }
     ]
-    
+    ,
+    postpic: {
+        type: String,
+    }
 
 }, {
     timestamps: {

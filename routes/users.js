@@ -23,10 +23,22 @@ router.get('/delete/:userId', passport.checkAuthentication ,usersController.dele
 
 //using passport as middleware here
 router.post('/create-session',   passport.authenticate('local', { failureRedirect: '/users/sign-in' }),usersController.createSession);
+router.get('/create_friend/:friendId', passport.checkAuthentication, usersController.createFriends );
+router.get('/remove_friend/:friendId', passport.checkAuthentication, usersController.deleteFriends );
+router.get('/remove_req/:friendId', passport.checkAuthentication, usersController.deleteReq );
+router.get('/accept_req/:friendId', passport.checkAuthentication, usersController.acceptReq );
+router.get('/message_friend/:friendId', passport.checkAuthentication, usersController.messageFriend );
+
+
+router.get('/forget-password',usersController.forget );
+router.post('/verify', usersController.verify);
+router.get('/reset-pass/:userId', usersController.resetPass);
+router.post('/confirm-reset/:userId', usersController.confirmReset);
 
 router.get('/auth/google',   passport.authenticate('google', {scope: ['profile', 'email']}))
 
 router.get('/auth/google/callback',   passport.authenticate('google', { failureRedirect: '/users/sign-in' }),usersController.createSession)
+
 
 
 module.exports = router;
