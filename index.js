@@ -3,7 +3,7 @@ const cookieParser = require('cookie-parser');
 const dotEnv = require('dotenv');
 dotEnv.config();
 const env = require('./config/environment');
-const loger = require('morgan')
+// const loger = require('morgan')
 
 const app = express();
 require('./config/view-helpers')(app);
@@ -26,7 +26,7 @@ const passportJWT = require('./config/passport-jwt-strategy');
 //     methods: "POST",
 
 // }));
-
+const path = require('path')
 
 const chatServer = require('http').createServer(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
@@ -55,7 +55,8 @@ app.set('layout extractScripts', true);
 //mongoose store is used to store all the session cookies in db
 // set up the view engine
 app.set('view engine', 'ejs');
-app.set('views', './views');
+app.set('views', path.join(__dirname,'views'));
+app.engine('html', require('ejs').renderFile);
 
 //session middleware with options
 app.use(session({
