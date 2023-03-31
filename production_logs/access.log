@@ -1223,3 +1223,5 @@
 ::1 - - [31/Mar/2023:04:27:10 +0000] "GET / HTTP/1.1" 200 5999 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
 ::ffff:127.0.0.1 - - [31/Mar/2023:04:28:16 +0000] "GET / HTTP/1.1" - - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
 ::ffff:127.0.0.1 - - [31/Mar/2023:04:28:32 +0000] "GET / HTTP/1.1" 200 5999 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+::1 - - [31/Mar/2023:04:33:18 +0000] "GET / HTTP/1.1" 500 148 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+::1 - - [31/Mar/2023:04:33:44 +0000] "GET / HTTP/1.1" 200 5999 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
