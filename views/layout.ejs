@@ -36,9 +36,9 @@
        <%}%>
         <%- include('_footer'); %>
 
-            <%- script %>
-                <script>
-            <% if (flash.success && flash.success.length > 0) {%>
+        <%- script %>
+        <script>
+            <% if(flash.success && flash.success.length > 0){ %>
                         new Noty({
                             theme: 'semanticui',
                             text: "<%= flash.success %>",
@@ -47,9 +47,9 @@
                             timeout: 1500
 
                         }).show();    
-            <%} %>
+            <%}%>
 
-            <% if (flash.error && flash.error.length > 0) {%>
+            <% if(flash.error && flash.error.length > 0) {%>
                         new Noty({
                             theme: 'semanticui',
                             text: "<%= flash.error %>",
@@ -62,7 +62,7 @@
 
 
 
-                </script>
+        </script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>

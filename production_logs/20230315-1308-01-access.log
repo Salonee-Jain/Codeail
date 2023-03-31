@@ -1,5 +1,0 @@
-[0mGET /users/sign-out [36m302[0m 1199.883 ms - 46[0m
-[0mGET / [32m200[0m 3060.044 ms - 2903[0m
-[0mGET /users/sign-in [36m304[0m 308.294 ms - -[0m
-[0mPOST /users/create-session [36m302[0m 1219.261 ms - 46[0m
-[0mGET / [32m200[0m 1787.501 ms - 26943[0m

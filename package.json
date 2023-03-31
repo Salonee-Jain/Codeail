@@ -6,11 +6,12 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prod-start": "SET NODE_ENV=production & node index.js"
+    "prod-start": "SET NODE_ENV=production & nodemon index.js"
   },
   "keywords": [
     "social"
   ],
+  
   "author": "Saloni",
   "license": "ISC",
   "dependencies": {
