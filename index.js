@@ -40,7 +40,7 @@ app.use(cookieParser());
 
 app.use(express.static(env.asset_path));
 app.use('/uploads', express.static(__dirname+'/uploads'))
-app.use(loger(env.morgan.mode, env.morgan.options))
+// app.use(loger(env.morgan.mode, env.morgan.options))
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
