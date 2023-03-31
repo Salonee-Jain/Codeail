@@ -32,7 +32,7 @@ const chatServer = require('http').createServer(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen('5000');
 console.log("Chat server running on port:  5000.")
-
+const path = require('path')
 
 app.use(express.urlencoded());
 
