@@ -1187,3 +1187,10 @@
 [0mGET / [32m200[0m 3857.697 ms - 36310[0m
 [0mGET / [32m200[0m 3653.329 ms - 36255[0m
 [0mGET / [32m200[0m 4966.613 ms - 36488[0m
+[0mGET / [32m200[0m 3803.380 ms - 29584[0m
+[0mPOST /likes/toggle/?id=640c66492d2a272c38542ffc&type=Post [32m200[0m 1965.253 ms - 74[0m
+[0mPOST /likes/toggle/?id=64118e3e7744fc2660324510&type=Comment [32m200[0m 1368.369 ms - 75[0m
+[0mGET /comments/delete/64118e3e7744fc2660324510 [32m200[0m 2753.433 ms - 78[0m
+[0mGET /users/message_friend/640c676a2d2a272c3854303d [33m400[0m 856.391 ms - 28[0m
+[0mGET /users/message_friend/640c64e92d2a272c38542fb1 [33m400[0m 814.139 ms - 28[0m
+[0mGET / [32m200[0m 1956.742 ms - 29465[0m

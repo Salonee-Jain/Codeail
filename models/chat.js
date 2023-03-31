@@ -6,11 +6,6 @@ const chatSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    // user:[{
-    //     type:  mongoose.Schema.Types.ObjectId,
-    //     ref: 'User',
-    // }],
-
     user_email:{
         type: String,
         required: true,
@@ -20,14 +15,6 @@ const chatSchema = new mongoose.Schema({
         type: String,
      
     },
-    // fromUser:{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'User'
-    // },
-    // toUser:{
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'User'
-    // }
 
 
 },{
