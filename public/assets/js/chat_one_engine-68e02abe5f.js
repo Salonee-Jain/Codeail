@@ -1,0 +1,1 @@
+$(".message").click(function(e){$(e.target).attr("href").split("/")[2];e.preventDefault(),$.ajax({method:"get",url:$(e.target).prop("href"),success:function(e){new ChatEngine("user-chat-box",e.user)},error:function(e){console.log(e)}})});

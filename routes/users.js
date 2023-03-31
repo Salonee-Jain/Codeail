@@ -30,6 +30,7 @@ router.get('/accept_req/:friendId', passport.checkAuthentication, usersControlle
 router.get('/message_friend/:friendId', passport.checkAuthentication, usersController.messageFriend );
 
 
+
 router.get('/forget-password',usersController.forget );
 router.post('/verify', usersController.verify);
 router.get('/reset-pass/:userId', usersController.resetPass);

@@ -32,15 +32,17 @@ const chatServer = require('http').createServer(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen('5000');
 console.log("Chat server running on port:  5000.")
-const path = require('path')
 
-app.use(express.urlencoded());
+app.use(require('body-parser').urlencoded({
+    extended: true
+  }));
 
 app.use(cookieParser());
 
+console.log(env.asset_path)
 app.use(express.static(env.asset_path));
 app.use('/uploads', express.static(__dirname+'/uploads'))
-// app.use(loger(env.morgan.mode, env.morgan.options))
+app.use(loger(env.morgan.mode, env.morgan.options))
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
@@ -49,12 +51,12 @@ app.set('layout extractScripts', true);
 
 
 
+
 //mongoose store is used to store all the session cookies in db
 // set up the view engine
-
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '.', 'views'));
-app.engine('html', require('ejs').renderFile);
+app.set('views', './views');
+
 //session middleware with options
 app.use(session({
     name:'Codeail',

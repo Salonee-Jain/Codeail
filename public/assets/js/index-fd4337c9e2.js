@@ -1,1 +1,0 @@
-$("form").keydown(function(e){"Enter"!=e.key||e.preventDefault()});

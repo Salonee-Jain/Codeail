@@ -10,7 +10,9 @@
         integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://kit.fontawesome.com/deb11384cc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/layout.css">
+
+    
+    <link rel="stylesheet" href="<%= assetPath('css/layout.css') %>">
     <%- style %>
 
 </head>
@@ -66,7 +68,7 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"></script>
-<script src="/js/chat_engine.js"></script>
+<script src="<%= assetPath('js/chat_engine.js') %>"></script>
 <% if (locals.user){ %>
 <script>
     new ChatEngine('user-chat-box', '<%= locals.user.email %>')
