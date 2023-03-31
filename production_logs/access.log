@@ -473,3 +473,7 @@
 ::1 - - [31/Mar/2023:07:41:45 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36"
 ::1 - - [31/Mar/2023:07:41:45 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36"
 ::1 - - [31/Mar/2023:07:41:46 +0000] "GET /undefined HTTP/1.1" 404 148 "http://localhost:8000/" "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Mobile Safari/537.36"
+[0mGET / [32m200[0m 4583.193 ms - 2564[0m
+[0mGET /users/sign-in [32m200[0m 312.521 ms - 2814[0m
+[0mPOST /users/create-session [36m302[0m 1255.226 ms - 46[0m
+[0mGET / [32m200[0m 2120.631 ms - 32352[0m
