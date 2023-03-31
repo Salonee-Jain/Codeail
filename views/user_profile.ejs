@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/user_profile.css">
+<link rel="stylesheet" href="<%=locals.assetPath('css/user_profile.css')%>">
 
 <div class="profile-container">
 
@@ -6,7 +6,7 @@
         <%if(user_profile.avatar){%>
             <img src="<%= user_profile.avatar %>" alt="<%= user_profile.name %>" style="width:100%; height:100%; border-radius:50%;">
             <%}else{%>
-            <img src="/images/profile.png" alt="" style="width:100%; height:100%; border-radius:50%;">
+            <img src="<%=locals.assetPath('images/profile.png')%>" alt="" style="width:100%; height:100%; border-radius:50%;">
             <%}%>
     </div>
     <div class="profile-info">

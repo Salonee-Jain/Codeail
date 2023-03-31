@@ -5,6 +5,7 @@ const User = require('../models/user')
 const env = require('./environment')
 ///https://console.cloud.google.com/apis/credentials/oauthclient/388485113850-hst46lr1p8issh3heakmrbgcd2m3atln.apps.googleusercontent.com?project=codeail-sample-379117
 
+console.log("google")
 passport.use(new GoogleStrategy({
     clientID: env.googleClientID,
     clientSecret: env.googleClientSecret,

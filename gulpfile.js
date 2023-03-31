@@ -12,6 +12,7 @@ const rev = require("gulp-rev");
 // Uglify es should be of 1.0.4
 const uglify = require("gulp-uglify-es").default;
 
+const path = require('path')
 // Imagemin should be of 6.0.0
 const imagemin = require("gulp-imagemin");
 
@@ -26,7 +27,7 @@ gulp.task("css", function (done) {
     .pipe(cssnano())
     .pipe(gulp.dest("./assets/css"));
 
-  return gulp
+  gulp
     .src("./assets/**/*.css")
     .pipe(rev())
     .pipe(gulp.dest("./public/assets"))
@@ -42,8 +43,8 @@ gulp.task("css", function (done) {
 
 gulp.task("js", function (done) {
   console.log("minifying js...");
-  gulp
-    .src("./assets/**/*.js")
+ gulp
+    .src(path.join(__dirname, "/assets/**/*.js"))
     .pipe(uglify())
     .pipe(rev())
     .pipe(gulp.dest("./public/assets"))
@@ -60,7 +61,7 @@ gulp.task("js", function (done) {
 gulp.task("images", function (done) {
   console.log("compressing images...");
   gulp
-    .src("./assets/**/*.+(png|jpg|gif|svg|jpeg)")
+    .src(path.join(__dirname, "/assets/**/*.+(png|jpg|gif|svg|jpeg)"))
     .pipe(imagemin())
     .pipe(rev())
     .pipe(gulp.dest("./public/assets"))

@@ -19,7 +19,15 @@ header{
         color: white;
        }
     }
-    
+    .users{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        p{
+            margin-right: 5px;
+        }
+    }
     .user-links{
         display: flex;
         align-items: center;

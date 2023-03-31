@@ -18,6 +18,7 @@ const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const cMiddleware = require('./config/middleware');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
+const passportGithub = require('./config/passport-github-startegy')
 const passportJWT = require('./config/passport-jwt-strategy');
 // const cors = require('cors');
 // app.use(cors())
