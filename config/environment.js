@@ -71,4 +71,4 @@ const production = {
       }
 }
 
-module.exports = eval(process.env.CODEAIL_ENVIRONMENT)==undefined?development:eval(process.env.CODEAIL_ENVIRONMENT);
+module.exports = eval(process.env.NODE_ENV)==undefined?development:eval(process.env.NODE_ENV);
