@@ -54,7 +54,7 @@ app.set('layout extractScripts', true);
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '.', 'views'));
-
+app.engine('html', require('ejs').renderFile);
 //session middleware with options
 app.use(session({
     name:'Codeail',
