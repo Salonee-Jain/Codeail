@@ -9,7 +9,7 @@ const Chat = require('../models/chat')
 const restMailer = require('../mailer/resetPassword_mailer');
 const postController = require('./posts_controller');
 const commentController = require('./comments_controller');
-
+const Like = require('../models/like')
 
 
 //render the profile page
@@ -262,18 +262,27 @@ module.exports.delete = async function (req, res) {
     try {
         let posts = await Post.find({ user: req.params.userId });
         console.log("_____________________________________________________________________________");
-        console.log("Posts: ", posts)
         for (let postid of posts) {
-            let postComment = await Comment.find({ post: postid._id });
-            console.log("Post comment: ", postComment)
+            console.log(postid._id)
+            // let postdel = await Post.deleteMany({_id: postid._id});
         }
-        let comment = await Comment.find({ user: req.params.userId });
-        console.log("comment: ", comment)
+        
         console.log("_____________________________________________________________________________");
-
+        let comments = await Comment.find({ user: req.params.userId });
+        for (let commentid of comments) {
+            console.log(commentid._id)
+            // let postdel = await Post.deleteMany({_id: postid._id});
+        }
+       
+        console.log("_____________________________________________________________________________");
+        let likes = await Like.find({ user: req.params.userId });
+        for (let likeid of likes) {
+            console.log(likeid._id)
+            // let postdel = await Post.deleteMany({_id: postid._id});
+        }
         return res.redirect('/')
     } catch {
-        cosnole.log("Error: ", err);
+        console.log("Error: ", err);
         return;
     }
 

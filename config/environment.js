@@ -31,6 +31,9 @@ const development = {
       googleClientID: '388485113850-hst46lr1p8issh3heakmrbgcd2m3atln.apps.googleusercontent.com',
       googleClientSecret: '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',
       googleCallbackURL: 'http://localhost:8000/users/auth/google/callback',
+      githubClientID: '3236843a9e282c30fbc9',
+      githubClientSecret: '71140f87aa86fc85055d62bfffc918f63b37e237',
+      githubCallbackURL: 'http://localhost:8000/users/auth/github/callback',
       jwt_secret: 'codeail',
       morgan:{
         mode: 'dev',
@@ -61,6 +64,9 @@ const production = {
       googleClientID: process.env.GOOGLE_CLIENT_ID,
       googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
       googleCallbackURL: process.env.GOOGLE_CALLBACK_URL,
+      githubClientID: process.env.GITHUB_CLIENT_ID,
+      githubClientSecret:process.env.GITHUB_CLIENT_SECRET,
+      githubCallbackURL:process.env.GITHUB_CALLBACK_URL ,
       jwt_secret: process.env.JWT_SECRET,
       morgan:{
         mode: 'combined',

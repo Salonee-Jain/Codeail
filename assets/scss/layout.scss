@@ -16,6 +16,8 @@
     --sub-links: rgb(164, 164, 164);
     --comment-bg:  rgb(60, 67, 69);
     --sign-color:  rgb(175, 175, 175);
+    --input-color:rgb(56,67,79);
+    --place-color:rgb(197, 193, 193);
 
    }
 
@@ -71,12 +73,12 @@ main{
             border: none;
             outline: none;
             margin-top: .5rem;
-            background-color: rgb(56,67,79);
+            background-color: var(--input-color);
             color: white;
             padding: .5rem 1rem;
             border-radius: 5px;
             &::placeholder {
-                color: rgb(197, 193, 193);
+                color: var(--place-color);
               }
             &[type=submit]{
                 margin-top: 1.5rem;

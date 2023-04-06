@@ -15,6 +15,7 @@ passport.use(new GitHubStrategy({
   },
   async function(accessToken, refreshToken, profile, done) {
     let user = await User.findOne({ email: profile.emails[0].value });
+    console.log(profile)
         // console.log(profile._json.login);
         // console.log(profile._json.avatar_url);
         // console.log(profile._json.email)

@@ -23,7 +23,6 @@ passport.serializeUser((user, done) => {
 
 
 
-
 //desrializing is extarcting cookie and getting user oject from it
 passport.deserializeUser((id, done)=>{
     User.findById(id, (err, user)=>{

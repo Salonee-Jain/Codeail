@@ -30,7 +30,9 @@ class ToggleLike{
                 $(self).attr('data-likes', likesCount);
                 console.log(self)
                 if(data.data.posticon == true){
+                    // $(self).css("color", "red !important");
                     $(self).html(`${likesCount} <i class="fa-regular fa-heart"></i> Like`);
+                  
                 }else{
                     $(self).html(`${likesCount} <i class="fa-regular fa-heart"></i>`);
                 }
