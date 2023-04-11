@@ -56,7 +56,8 @@
 
     //populate user from post through ajax
     let createnewPostdom = function (posts) {
-        let path= '/images/profile.png'
+        let path= '/images/profile-a536980956.png'
+
         return $(`
     <div class="post-card" id="post-${posts._id}">
         <div class="post-user">
@@ -75,6 +76,7 @@
         </div>
         <div class="post-content">
         
+        ${post.postpic}
             <div class="post-image" style="width:100%; height: auto; margin-bottom:20px">
                 <img src="${posts.postpic}" alt="" style="width:100%; height:auto">
             </div>

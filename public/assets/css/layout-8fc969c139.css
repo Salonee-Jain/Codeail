@@ -1,0 +1,91 @@
+* {
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  --color-border-faint:hsla(0,0%,100%,0.12);
+  --main-header-footer: rgb(29,34,38);
+  --main-body: rgb(0,0,0);
+  --main-purple: rgb(134, 4, 185);
+  --main-light-gray: rgb(56,67,79);
+  --main-dark: rgb(18, 15, 26);
+  --sub-links: rgb(164, 164, 164);
+  --comment-bg: rgb(60, 67, 69);
+  --sign-color: rgb(175, 175, 175);
+  --input-color:rgb(56,67,79);
+  --place-color:rgb(197, 193, 193);
+}
+
+body {
+  background-color: var(--main-body);
+}
+
+hr {
+  height: 1px;
+  background-color: var(--color-border-faint);
+  border: none;
+}
+
+main {
+  height: auto;
+  padding: 0% 2%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sign-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  background-color: var(--main-header-footer);
+  padding: 2rem;
+  border-radius: 5px;
+}
+.sign-container p {
+  margin-top: 20px;
+  color: var(--sign-color);
+  font-size: 0.8rem;
+}
+.sign-container .sign-heading {
+  color: white;
+}
+.sign-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.sign-container form input, .sign-container form label {
+  border: none;
+  outline: none;
+  margin-top: 0.5rem;
+  background-color: var(--input-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+.sign-container form input::placeholder, .sign-container form label::placeholder {
+  color: var(--place-color);
+}
+.sign-container form input[type=submit], .sign-container form label[type=submit] {
+  margin-top: 1.5rem;
+  background-color: var(--main-purple);
+}
+
+.additional {
+  font-size: 0.7rem;
+  color: white;
+  margin-top: 20px;
+}
+.additional a {
+  text-decoration: none;
+  color: var(--main-purple);
+  font-weight: 900;
+}
